@@ -14,6 +14,7 @@ class NukePipView extends WatchUi.WatchFace {
     private const NUKE_BLACK = 0x1A1A1A;
     private const NUKE_ORANGE = 0xFF6600;
     private const NUKE_GREEN = 0x00FF00;
+    private const BLOOD_RED = 0x8B0000;
 
     private var screenWidth;
     private var screenHeight;
@@ -117,38 +118,63 @@ class NukePipView extends WatchUi.WatchFace {
         }
     }
 
-    // Wskazówka sekundnika
+    // Wskazówka sekundnika - nuklearny styl
     function drawSecondHand(dc as Dc) as Void {
         var clockTime = System.getClockTime();
         var seconds = clockTime.sec;
         
         var angle = Math.toRadians(seconds * 6 - 90);
-        var handLength = radius * 0.75;
-        var tailLength = radius * 0.15;
+        var handLength = radius * 0.78;
+        var tailLength = radius * 0.18;
         
-        var endX = centerX + (handLength * Math.cos(angle)).toNumber();
-        var endY = centerY + (handLength * Math.sin(angle)).toNumber();
-        var tailX = centerX - (tailLength * Math.cos(angle)).toNumber();
-        var tailY = centerY - (tailLength * Math.sin(angle)).toNumber();
+        var cosA = Math.cos(angle);
+        var sinA = Math.sin(angle);
         
-        // Cień wskazówki
-        dc.setColor(0x333333, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(3);
-        dc.drawLine(tailX + 2, tailY + 2, endX + 2, endY + 2);
+        var endX = centerX + (handLength * cosA).toNumber();
+        var endY = centerY + (handLength * sinA).toNumber();
+        var tailX = centerX - (tailLength * cosA).toNumber();
+        var tailY = centerY - (tailLength * sinA).toNumber();
         
-        // Główna wskazówka - pomarańczowa
+        // Kąt prostopadły do wskazówki (dla grotu strzałki)
+        var perpCos = Math.cos(angle + Math.PI / 2);
+        var perpSin = Math.sin(angle + Math.PI / 2);
+        
+        // Efekt "glow" - szerszy, półprzezroczysty cień
+        dc.setColor(0x552200, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(5);
+        dc.drawLine(tailX, tailY, endX, endY);
+        
+        // Główna linia - pomarańczowa
         dc.setColor(NUKE_ORANGE, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(2);
         dc.drawLine(tailX, tailY, endX, endY);
         
-        // Kropka na końcu
-        dc.fillCircle(endX, endY, 3);
+        // Grot strzałki na końcu
+        var arrowSize = 8;
+        var arrowBack = 12; // jak daleko od końca zaczyna się grot
+        var arrowBaseX = endX - (arrowBack * cosA).toNumber();
+        var arrowBaseY = endY - (arrowBack * sinA).toNumber();
         
-        // Środkowa kropka
+        var arrowLeft = [
+            (arrowBaseX - arrowSize * perpCos).toNumber(),
+            (arrowBaseY - arrowSize * perpSin).toNumber()
+        ];
+        var arrowRight = [
+            (arrowBaseX + arrowSize * perpCos).toNumber(),
+            (arrowBaseY + arrowSize * perpSin).toNumber()
+        ];
+        var arrowTip = [endX, endY];
+        
+        dc.fillPolygon([arrowLeft, arrowTip, arrowRight]);
+        
+        // Mały okrągły "ogon" na końcu
+        dc.fillCircle(tailX, tailY, 4);
+        
+        // Środkowa kropka - pomarańczowa z czarnym środkiem
         dc.setColor(NUKE_ORANGE, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(centerX, centerY, 4);
+        dc.fillCircle(centerX, centerY, 6);
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(centerX, centerY, 2);
+        dc.fillCircle(centerX, centerY, 3);
     }
 
     function drawTime(dc as Dc) as Void {
@@ -166,14 +192,14 @@ class NukePipView extends WatchUi.WatchFace {
         var hoursStr = hours.format("%02d");
         var minsStr = minutes.format("%02d");
 
-        // Godziny - wyżej i bardziej w lewo
+        // Godziny - 5% wyżej i 5% w lewo
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(centerX - radius * 0.44, centerY - radius * 0.15, 
+        dc.drawText(centerX - radius * 0.51, centerY - radius * 0.3, 
                     Graphics.FONT_NUMBER_HOT, hoursStr, 
                     Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // Minuty - wyżej i bardziej w prawo
-        dc.drawText(centerX + radius * 0.44, centerY - radius * 0.15, 
+        // Minuty - 5% wyżej i 5% w prawo
+        dc.drawText(centerX + radius * 0.51, centerY - radius * 0.3, 
                     Graphics.FONT_NUMBER_HOT, minsStr, 
                     Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
@@ -187,7 +213,7 @@ class NukePipView extends WatchUi.WatchFace {
             tempNum = temp.format("%d");
         }
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
         // Liczba wyśrodkowana
         dc.drawText(centerX, centerY - radius * 0.55, 
                     Graphics.FONT_SMALL, tempNum, 
@@ -227,30 +253,30 @@ class NukePipView extends WatchUi.WatchFace {
     function drawStats(dc as Dc) as Void {
         var activityInfo = ActivityMonitor.getInfo();
 
-        // Kroki - bardziej w prawo (+10%)
+        // Kroki - bardziej w prawo, czarna czcionka
         if (activityInfo.steps != null) {
             var steps = activityInfo.steps;
             
-            // Kropka po prawej
-            dc.setColor(NUKE_GREEN, Graphics.COLOR_TRANSPARENT);
+            // Kropka po prawej - czarna
+            dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
             dc.fillCircle(centerX + radius * 0.55, centerY + radius * 0.28, 4);
             
-            // Liczba kroków
+            // Liczba kroków - czarna
             dc.drawText(centerX + radius * 0.42, centerY + radius * 0.28, 
                         Graphics.FONT_TINY, steps.toString(), 
                         Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
 
-        // Puls - bardziej w lewo (+10%)
+        // Puls - ciemny krwisty czerwony
         var heartRate = getHeartRate();
         if (heartRate != null && heartRate > 0) {
             var hrStr = heartRate.toString();
             
-            // Serduszko po lewej
-            dc.setColor(NUKE_ORANGE, Graphics.COLOR_TRANSPARENT);
+            // Serduszko - krwiste
+            dc.setColor(BLOOD_RED, Graphics.COLOR_TRANSPARENT);
             drawHeart(dc, centerX - radius * 0.55, centerY + radius * 0.28);
             
-            // Liczba pulsu
+            // Liczba pulsu - krwista
             dc.drawText(centerX - radius * 0.42, centerY + radius * 0.28, 
                         Graphics.FONT_TINY, hrStr, 
                         Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -276,7 +302,7 @@ class NukePipView extends WatchUi.WatchFace {
     }
 
     function drawHeart(dc as Dc, x as Number, y as Number) as Void {
-        dc.setColor(NUKE_ORANGE, Graphics.COLOR_TRANSPARENT);
+        // Używa koloru ustawionego przed wywołaniem
         dc.fillCircle(x - 4, y - 3, 5);
         dc.fillCircle(x + 4, y - 3, 5);
         var points = [[x - 9, y - 1], [x, y + 9], [x + 9, y - 1]];
@@ -318,15 +344,21 @@ class NukePipView extends WatchUi.WatchFace {
     }
 
     function getBatteryTimeRemaining(battery as Number) as String {
-        // Szacowanie: ~7 dni na 100% = 168h
-        var hoursRemaining = (battery * 168 / 100).toNumber();
+        var stats = System.getSystemStats();
         
-        if (hoursRemaining >= 24) {
-            var days = hoursRemaining / 24;
-            return days.toString() + "d";
-        } else {
-            return hoursRemaining.toString() + "h";
+        // Użyj wbudowanego szacowania Garmina jeśli dostępne
+        if (stats has :batteryInDays && stats.batteryInDays != null) {
+            var days = stats.batteryInDays;
+            if (days >= 1) {
+                return days.format("%d") + "d";
+            } else {
+                var hours = (days * 24).toNumber();
+                return hours.toString() + "h";
+            }
         }
+        
+        // Fallback - samo % jeśli brak szacowania
+        return battery.toString() + "%";
     }
 
     function onHide() as Void {}
