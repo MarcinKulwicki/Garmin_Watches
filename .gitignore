@@ -1,0 +1,52 @@
+# Garmin Developer Keys - BARDZO WAŻNE!
+*.pem
+*.der
+developer_key*
+
+# Garmin Connect IQ - pliki kompilacji
+bin/
+.build/
+*.prg
+*.iq
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+*.iml
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Garmin SDK cache
+.garmin/
+
+# Backup files
+*.bak
+*.backup
+
+# Build artifacts
+*.class
