@@ -56,8 +56,8 @@ class NukePipView extends WatchUi.WatchFace {
 
         drawRadiationSymbol(dc);
         drawOuterRing(dc);
-        drawBatteryIndicator(dc);
         drawSecondHand(dc);
+        drawBatteryIndicator(dc);
         drawTime(dc);
         drawDate(dc);
         drawTemperature(dc);
@@ -138,9 +138,9 @@ class NukePipView extends WatchUi.WatchFace {
         // Kąt rotacji: 6 stopni na sekundę
         var angleRad = Math.toRadians(seconds * 6);
         
-        // Punkt obrotu - środek kółka na PNG (72% od góry)
+        // Punkt obrotu - środek kółka na PNG (75% od góry)
         var pivotX = secondHandWidth / 2;
-        var pivotY = (secondHandHeight * 0.72).toNumber();
+        var pivotY = (secondHandHeight * 0.75).toNumber();
         
         // Skalowanie - dopasuj do 92% promienia ekranu
         var desiredLength = radius * 0.92;
