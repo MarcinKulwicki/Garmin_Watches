@@ -1,23 +1,86 @@
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
 
-    <setting propertyKey="@Properties.BackgroundColor" title="@Strings.BackgroundColorTitle">
+    <!-- Kolor czasu -->
+    <setting propertyKey="@Properties.TimeColor" title="@Strings.TimeColorTitle">
         <settingConfig type="list">
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0x555555">@Strings.ColorDarkGray</listEntry>
-            <listEntry value="0xAAAAAA">@Strings.ColorLightGray</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
+            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
+            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
+            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
         </settingConfig>
     </setting>
 
-    <setting propertyKey="@Properties.ForegroundColor" title="@Strings.ForegroundColorTitle">
+    <!-- Kolor daty -->
+    <setting propertyKey="@Properties.DateColor" title="@Strings.DateColorTitle">
         <settingConfig type="list">
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0x0000FF">@Strings.ColorBlue</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
+            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
+            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
+            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Kolor tętna -->
+    <setting propertyKey="@Properties.HeartRateColor" title="@Strings.HeartRateColorTitle">
+        <settingConfig type="list">
             <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
+            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
+            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
+            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
         </settingConfig>
     </setting>
 
+    <!-- Kolor temperatury -->
+    <setting propertyKey="@Properties.TemperatureColor" title="@Strings.TemperatureColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
+            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
+            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
+            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Kolor kroków -->
+    <setting propertyKey="@Properties.StepsColor" title="@Strings.StepsColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
+            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
+            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Format 24h -->
     <setting propertyKey="@Properties.UseMilitaryFormat" title="@Strings.MilitaryFormatTitle">
         <settingConfig type="boolean" />
     </setting>

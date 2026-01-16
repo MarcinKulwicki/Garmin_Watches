@@ -26,6 +26,19 @@ class NukePipView extends WatchUi.WatchFace {
         font40 = Application.loadResource(Rez.Fonts.Font40);
     }
 
+    // Pomocnicza funkcja do pobierania koloru z ustawień
+    function getColor(propertyId as String, defaultColor as Number) as Number {
+        try {
+            var color = Application.Properties.getValue(propertyId);
+            if (color != null && color instanceof Number) {
+                return color as Number;
+            }
+        } catch (e) {
+            // Fallback do domyślnego koloru
+        }
+        return defaultColor;
+    }
+
     function onUpdate(dc as Dc) as Void {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
@@ -52,7 +65,9 @@ class NukePipView extends WatchUi.WatchFace {
         var monthStr = months[today.month - 1];
         var dateStr = today.day.format("%02d") + monthStr;
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        var dateColor = getColor("DateColor", 0xFFFFFF);
+        
+        dc.setColor(dateColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
             dc.getWidth() / 2,
             dc.getHeight() / 7,
@@ -67,17 +82,39 @@ class NukePipView extends WatchUi.WatchFace {
         var hours = clockTime.hour;
         var minutes = clockTime.min;
 
+        // Sprawdź format 12/24h
+        try {
+            var useMilitary = Application.Properties.getValue("UseMilitaryFormat");
+            if (useMilitary == null || !useMilitary) {
+                if (hours > 12) {
+                    hours = hours - 12;
+                } else if (hours == 0) {
+                    hours = 12;
+                }
+            }
+        } catch (e) {
+            // Domyślnie 12h format
+            if (hours > 12) {
+                hours = hours - 12;
+            } else if (hours == 0) {
+                hours = 12;
+            }
+        }
+
         var hoursStr = hours.format("%02d");
         var minsStr = minutes.format("%02d");
 
         var centerX = dc.getWidth() / 2;
         var topY = dc.getHeight() * 4 / 10;
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        var timeColor = getColor("TimeColor", 0xFFFFFF);
+
+        dc.setColor(timeColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
             centerX, 
             topY,
-            fontRegular, hoursStr +":" + minsStr,
+            fontRegular, 
+            hoursStr + ":" + minsStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
         );
     }
@@ -86,7 +123,9 @@ class NukePipView extends WatchUi.WatchFace {
         var hr = getHeartRate();
         var hrStr = (hr != null) ? hr.toString() : "--";
 
-        dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+        var hrColor = getColor("HeartRateColor", 0xFF0000);
+
+        dc.setColor(hrColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
             dc.getWidth() / 6,
             dc.getHeight() * 6 / 10,
@@ -118,7 +157,9 @@ class NukePipView extends WatchUi.WatchFace {
         var temp = getTemperature();
         var tempStr = (temp != null) ? temp.toString() + "°" : "--°";
 
-        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+        var tempColor = getColor("TemperatureColor", 0xFFFF00);
+
+        dc.setColor(tempColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
             dc.getWidth() * 5 / 6,
             dc.getHeight() * 6 / 10,
@@ -148,7 +189,9 @@ class NukePipView extends WatchUi.WatchFace {
         if (steps != null) {
             var stepsStr = steps.toString();
 
-            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+            var stepsColor = getColor("StepsColor", 0x00AAFF);
+
+            dc.setColor(stepsColor, Graphics.COLOR_TRANSPARENT);
             dc.drawText(
                 dc.getWidth() / 2,
                 dc.getHeight() * 13 / 16,
