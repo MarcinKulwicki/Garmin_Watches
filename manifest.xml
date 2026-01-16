@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
-    <iq:application id="5cd8352f-9866-4993-ad56-d177a24ea9ce" type="watchface" name="@Strings.AppName" entry="NukePipApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="4.1.0">
+    <iq:application id="5cd8352f-9866-4993-ad56-d177a24ea9ce" type="watchface" name="@Strings.AppName" entry="NukePipApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="5.0.0">
         <iq:products>
             <iq:product id="epix2"/>
             <iq:product id="epix2pro42mm"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <fonts>
-    <font id="FontRegular" filename="RubikBubbles-Regular.fnt" />
-    <font id="FontSmall" filename="RubikBubbles-Small.fnt" />
+    <font id="FontRegular" filename="Mogra/Mogra-Regular.fnt" />
+    <font id="FontSmall" filename="Mogra/Mogra-Small.fnt" />
 </fonts>

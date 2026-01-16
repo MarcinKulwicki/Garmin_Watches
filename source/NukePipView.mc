@@ -65,37 +65,17 @@ class NukePipView extends WatchUi.WatchFace {
         var hours = clockTime.hour;
         var minutes = clockTime.min;
 
-        if (!System.getDeviceSettings().is24Hour) {
-            hours = hours % 12;
-            if (hours == 0) { hours = 12; }
-        }
-
         var hoursStr = hours.format("%02d");
         var minsStr = minutes.format("%02d");
 
         var centerX = dc.getWidth() / 2;
-
-        var hoursWidth = dc.getTextWidthInPixels(hoursStr, fontRegular);
-        var minsWidth = dc.getTextWidthInPixels(minsStr, fontSmall);
-
-        var totalWidth = hoursWidth + minsWidth + 8;
-        var startX = centerX - totalWidth / 2;
-
         var topY = dc.getHeight() * 4 / 10;
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
-            startX + hoursWidth / 2, 
+            centerX, 
             topY,
-            fontRegular, hoursStr,
-            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(
-            startX + hoursWidth + 8 + minsWidth / 2, 
-            topY,
-            fontSmall, minsStr,
+            fontRegular, hoursStr +":" + minsStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
         );
     }
