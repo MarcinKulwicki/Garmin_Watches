@@ -26,6 +26,7 @@
             <listEntry value="2">@Strings.FontG</listEntry>
             <listEntry value="3">@Strings.FontS</listEntry>
             <listEntry value="4">@Strings.FontT</listEntry>
+            <listEntry value="5">@Strings.FontO</listEntry>
         </settingConfig>
     </setting>
 

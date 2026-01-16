@@ -64,6 +64,11 @@ class NukePipView extends WatchUi.WatchFace {
                 fontSmall = Application.loadResource(Rez.Fonts.TourneyCondensedSmall);
                 font40 = Application.loadResource(Rez.Fonts.TourneyCondensed40);
                 break;
+            case 5: // Orbitron
+                fontRegular = Application.loadResource(Rez.Fonts.OrbitronRegular);
+                fontSmall = Application.loadResource(Rez.Fonts.OrbitronSmall);
+                font40 = Application.loadResource(Rez.Fonts.Orbitron40);
+                break;
             default: // Handjet
                 fontRegular = Application.loadResource(Rez.Fonts.HandjetRegular);
                 fontSmall = Application.loadResource(Rez.Fonts.HandjetSmall);

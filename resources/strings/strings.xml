@@ -33,6 +33,7 @@
     <string id="FontG">Font G</string>
     <string id="FontS">Font S</string>
     <string id="FontT">Font T</string>
+    <string id="FontO">Font O</string>
 
     <!-- Jednostki temperatury -->
     <string id="Celsius">Celsius (°C)</string>

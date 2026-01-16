@@ -3,7 +3,7 @@
     <!-- Wybór tła (1-13) -->
     <property id="BackgroundChoice" type="number">1</property>
     
-    <!-- Wybór fontu (1-4) -->
+    <!-- Wybór fontu (1-5) -->
     <property id="FontChoice" type="number">1</property>
 
     <!-- Kolory poszczególnych elementów -->

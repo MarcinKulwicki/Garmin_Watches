@@ -19,4 +19,9 @@
     <font id="TourneyCondensedRegular" filename="TourneyCondensed/TourneyCondensed-102.fnt" />
     <font id="TourneyCondensedSmall" filename="TourneyCondensed/TourneyCondensed-52.fnt" />
     <font id="TourneyCondensed40" filename="TourneyCondensed/TourneyCondensed-40.fnt" />
+    
+    <!-- Orbitron -->
+    <font id="OrbitronRegular" filename="Orbitron/Orbitron-102.fnt" />
+    <font id="OrbitronSmall" filename="Orbitron/Orbitron-52.fnt" />
+    <font id="Orbitron40" filename="Orbitron/Orbitron-40.fnt" />
 </fonts>
