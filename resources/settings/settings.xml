@@ -5,6 +5,17 @@
         <settingConfig type="list">
             <listEntry value="1">@Strings.Background1</listEntry>
             <listEntry value="2">@Strings.Background2</listEntry>
+            <listEntry value="3">@Strings.Background3</listEntry>
+            <listEntry value="4">@Strings.Background4</listEntry>
+            <listEntry value="5">@Strings.Background5</listEntry>
+            <listEntry value="6">@Strings.Background6</listEntry>
+            <listEntry value="7">@Strings.Background7</listEntry>
+            <listEntry value="8">@Strings.Background8</listEntry>
+            <listEntry value="9">@Strings.Background9</listEntry>
+            <listEntry value="10">@Strings.Background10</listEntry>
+            <listEntry value="11">@Strings.Background11</listEntry>
+            <listEntry value="12">@Strings.Background12</listEntry>
+            <listEntry value="13">@Strings.Background13</listEntry>
         </settingConfig>
     </setting>
 

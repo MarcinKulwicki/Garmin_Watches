@@ -15,6 +15,17 @@
     <!-- Nazwy teł -->
     <string id="Background1">Background 1</string>
     <string id="Background2">Background 2</string>
+    <string id="Background3">Background 3</string>
+    <string id="Background4">Background 4</string>
+    <string id="Background5">Background 5</string>
+    <string id="Background6">Background 6</string>
+    <string id="Background7">Background 7</string>
+    <string id="Background8">Background 8</string>
+    <string id="Background9">Background 9</string>
+    <string id="Background10">Background 10</string>
+    <string id="Background11">Background 11</string>
+    <string id="Background12">Background 12</string>
+    <string id="Background13">Background 13</string>
 
     <!-- Jednostki temperatury -->
     <string id="Celsius">Celsius (°C)</string>

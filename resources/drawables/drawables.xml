@@ -3,4 +3,15 @@
     <bitmap id="LauncherIcon" filename="launcher_icon.svg" dithering="none" />
     <bitmap id="Background1" filename="../images/background1.png" />
     <bitmap id="Background2" filename="../images/background2.png" />
+    <bitmap id="Background3" filename="../images/background3.png" />
+    <bitmap id="Background4" filename="../images/background4.png" />
+    <bitmap id="Background5" filename="../images/background5.png" />
+    <bitmap id="Background6" filename="../images/background6.png" />
+    <bitmap id="Background7" filename="../images/background7.png" />
+    <bitmap id="Background8" filename="../images/background8.png" />
+    <bitmap id="Background9" filename="../images/background9.png" />
+    <bitmap id="Background10" filename="../images/background10.png" />
+    <bitmap id="Background11" filename="../images/background11.png" />
+    <bitmap id="Background12" filename="../images/background12.png" />
+    <bitmap id="Background13" filename="../images/background13.png" />
 </drawables>

@@ -49,10 +49,45 @@ class NukePipView extends WatchUi.WatchFace {
         
         currentBackground = choice;
         
-        if (choice == 2) {
-            backgroundBitmap = Application.loadResource(Rez.Drawables.Background2);
-        } else {
-            backgroundBitmap = Application.loadResource(Rez.Drawables.Background1);
+        switch (choice) {
+            case 2:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background2);
+                break;
+            case 3:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background3);
+                break;
+            case 4:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background4);
+                break;
+            case 5:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background5);
+                break;
+            case 6:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background6);
+                break;
+            case 7:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background7);
+                break;
+            case 8:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background8);
+                break;
+            case 9:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background9);
+                break;
+            case 10:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background10);
+                break;
+            case 11:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background11);
+                break;
+            case 12:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background12);
+                break;
+            case 13:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background13);
+                break;
+            default:
+                backgroundBitmap = Application.loadResource(Rez.Drawables.Background1);
         }
     }
 
