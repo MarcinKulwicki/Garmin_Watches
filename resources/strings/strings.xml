@@ -3,14 +3,25 @@
     <string id="AppName">Nuke Pip</string>
 
     <!-- Tytuły ustawień -->
+    <string id="BackgroundChoiceTitle">Background</string>
     <string id="TimeColorTitle">Time Color</string>
     <string id="DateColorTitle">Date Color</string>
     <string id="HeartRateColorTitle">Heart Rate Color</string>
     <string id="TemperatureColorTitle">Temperature Color</string>
     <string id="StepsColorTitle">Steps Color</string>
     <string id="MilitaryFormatTitle">24 Hour Format</string>
+    <string id="TemperatureUnitTitle">Temperature Unit</string>
+
+    <!-- Nazwy teł -->
+    <string id="Background1">Background 1</string>
+    <string id="Background2">Background 2</string>
+
+    <!-- Jednostki temperatury -->
+    <string id="Celsius">Celsius (°C)</string>
+    <string id="Fahrenheit">Fahrenheit (°F)</string>
 
     <!-- Nazwy kolorów -->
+    <string id="ColorBlack">Black</string>
     <string id="ColorWhite">White</string>
     <string id="ColorRed">Red</string>
     <string id="ColorGreen">Green</string>

@@ -14,19 +14,48 @@ class NukePipView extends WatchUi.WatchFace {
     private var fontRegular;
     private var fontSmall;
     private var font40;
+    private var currentBackground = 1;
+
+    // ===========================================
+    // DOMYŚLNE KOLORY (format 0xRRGGBB):
+    // ===========================================
+    private const COLOR_TIME = 0xFFFFFF;
+    private const COLOR_DATE = 0xFFFFFF;
+    private const COLOR_HEART_RATE = 0xFF0000;
+    private const COLOR_TEMPERATURE = 0xFFFF00;
+    private const COLOR_STEPS = 0x00AAFF;
 
     function initialize() {
         WatchFace.initialize();
     }
 
     function onLayout(dc as Dc) as Void {
-        backgroundBitmap = Application.loadResource(Rez.Drawables.BackgroundImage);
         fontRegular = Application.loadResource(Rez.Fonts.FontRegular);
         fontSmall = Application.loadResource(Rez.Fonts.FontSmall);
         font40 = Application.loadResource(Rez.Fonts.Font40);
+        loadBackground();
     }
 
-    // Pomocnicza funkcja do pobierania koloru z ustawień
+    function loadBackground() as Void {
+        var choice = 1;
+        try {
+            var val = Application.Properties.getValue("BackgroundChoice");
+            if (val != null && val instanceof Number) {
+                choice = val as Number;
+            }
+        } catch (e) {
+            choice = 1;
+        }
+        
+        currentBackground = choice;
+        
+        if (choice == 2) {
+            backgroundBitmap = Application.loadResource(Rez.Drawables.Background2);
+        } else {
+            backgroundBitmap = Application.loadResource(Rez.Drawables.Background1);
+        }
+    }
+
     function getColor(propertyId as String, defaultColor as Number) as Number {
         try {
             var color = Application.Properties.getValue(propertyId);
@@ -34,12 +63,25 @@ class NukePipView extends WatchUi.WatchFace {
                 return color as Number;
             }
         } catch (e) {
-            // Fallback do domyślnego koloru
+            // Fallback
         }
         return defaultColor;
     }
 
     function onUpdate(dc as Dc) as Void {
+        // Sprawdź czy tło się zmieniło
+        var choice = 1;
+        try {
+            var val = Application.Properties.getValue("BackgroundChoice");
+            if (val != null && val instanceof Number) {
+                choice = val as Number;
+            }
+        } catch (e) {}
+        
+        if (choice != currentBackground) {
+            loadBackground();
+        }
+
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
 
@@ -65,7 +107,7 @@ class NukePipView extends WatchUi.WatchFace {
         var monthStr = months[today.month - 1];
         var dateStr = today.day.format("%02d") + monthStr;
 
-        var dateColor = getColor("DateColor", 0xFFFFFF);
+        var dateColor = getColor("DateColor", COLOR_DATE);
         
         dc.setColor(dateColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
@@ -82,7 +124,6 @@ class NukePipView extends WatchUi.WatchFace {
         var hours = clockTime.hour;
         var minutes = clockTime.min;
 
-        // Sprawdź format 12/24h
         try {
             var useMilitary = Application.Properties.getValue("UseMilitaryFormat");
             if (useMilitary == null || !useMilitary) {
@@ -93,7 +134,6 @@ class NukePipView extends WatchUi.WatchFace {
                 }
             }
         } catch (e) {
-            // Domyślnie 12h format
             if (hours > 12) {
                 hours = hours - 12;
             } else if (hours == 0) {
@@ -107,7 +147,7 @@ class NukePipView extends WatchUi.WatchFace {
         var centerX = dc.getWidth() / 2;
         var topY = dc.getHeight() * 4 / 10;
 
-        var timeColor = getColor("TimeColor", 0xFFFFFF);
+        var timeColor = getColor("TimeColor", COLOR_TIME);
 
         dc.setColor(timeColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
@@ -123,7 +163,7 @@ class NukePipView extends WatchUi.WatchFace {
         var hr = getHeartRate();
         var hrStr = (hr != null) ? hr.toString() : "--";
 
-        var hrColor = getColor("HeartRateColor", 0xFF0000);
+        var hrColor = getColor("HeartRateColor", COLOR_HEART_RATE);
 
         dc.setColor(hrColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
@@ -155,9 +195,26 @@ class NukePipView extends WatchUi.WatchFace {
 
     function drawTemperature(dc as Dc) as Void {
         var temp = getTemperature();
-        var tempStr = (temp != null) ? temp.toString() + "°" : "--°";
+        var tempStr = "--°";
+        
+        if (temp != null) {
+            // Sprawdź jednostkę temperatury
+            var unit = 1;
+            try {
+                var val = Application.Properties.getValue("TemperatureUnit");
+                if (val != null && val instanceof Number) {
+                    unit = val as Number;
+                }
+            } catch (e) {}
+            
+            if (unit == 2) {
+                // Fahrenheit: (C * 9/5) + 32
+                temp = (temp * 9 / 5) + 32;
+            }
+            tempStr = temp.toString() + "°";
+        }
 
-        var tempColor = getColor("TemperatureColor", 0xFFFF00);
+        var tempColor = getColor("TemperatureColor", COLOR_TEMPERATURE);
 
         dc.setColor(tempColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
@@ -189,7 +246,7 @@ class NukePipView extends WatchUi.WatchFace {
         if (steps != null) {
             var stepsStr = steps.toString();
 
-            var stepsColor = getColor("StepsColor", 0x00AAFF);
+            var stepsColor = getColor("StepsColor", COLOR_STEPS);
 
             dc.setColor(stepsColor, Graphics.COLOR_TRANSPARENT);
             dc.drawText(

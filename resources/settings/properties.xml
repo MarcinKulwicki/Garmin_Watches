@@ -1,5 +1,8 @@
 <properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
 
+    <!-- Wybór tła (1-2) -->
+    <property id="BackgroundChoice" type="number">1</property>
+
     <!-- Kolory poszczególnych elementów -->
     <property id="TimeColor" type="number">0xFFFFFF</property>
     <property id="DateColor" type="number">0xFFFFFF</property>
@@ -7,8 +10,8 @@
     <property id="TemperatureColor" type="number">0xFFFF00</property>
     <property id="StepsColor" type="number">0x00AAFF</property>
     
-    <!-- Tło -->
-    <property id="BackgroundColor" type="number">0x000000</property>
+    <!-- Jednostka temperatury: 1 = Celsius, 2 = Fahrenheit -->
+    <property id="TemperatureUnit" type="number">1</property>
     
     <!-- Format 24h -->
     <property id="UseMilitaryFormat" type="boolean">false</property>
