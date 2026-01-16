@@ -2,4 +2,5 @@
 <fonts>
     <font id="FontRegular" filename="Mogra/Mogra-Regular.fnt" />
     <font id="FontSmall" filename="Mogra/Mogra-Small.fnt" />
+    <font id="Font40" filename="Mogra/Mogra-40.fnt" />
 </fonts>

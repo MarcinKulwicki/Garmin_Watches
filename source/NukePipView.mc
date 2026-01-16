@@ -13,6 +13,7 @@ class NukePipView extends WatchUi.WatchFace {
     private var backgroundBitmap;
     private var fontRegular;
     private var fontSmall;
+    private var font40;
 
     function initialize() {
         WatchFace.initialize();
@@ -22,6 +23,7 @@ class NukePipView extends WatchUi.WatchFace {
         backgroundBitmap = Application.loadResource(Rez.Drawables.BackgroundImage);
         fontRegular = Application.loadResource(Rez.Fonts.FontRegular);
         fontSmall = Application.loadResource(Rez.Fonts.FontSmall);
+        font40 = Application.loadResource(Rez.Fonts.Font40);
     }
 
     function onUpdate(dc as Dc) as Void {
@@ -53,8 +55,8 @@ class NukePipView extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
             dc.getWidth() / 2,
-            dc.getHeight() / 8,
-            fontSmall,
+            dc.getHeight() / 7,
+            font40,
             dateStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
         );
