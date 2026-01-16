@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <fonts>
-    <font id="FontRegular" filename="Mogra/Mogra-Regular.fnt" />
-    <font id="FontSmall" filename="Mogra/Mogra-Small.fnt" />
-    <font id="Font40" filename="Mogra/Mogra-40.fnt" />
+    <!-- Handjet -->
+    <font id="HandjetRegular" filename="Handjet/Handjet-102.fnt" />
+    <font id="HandjetSmall" filename="Handjet/Handjet-52.fnt" />
+    <font id="Handjet40" filename="Handjet/Handjet-40.fnt" />
+    
+    <!-- Goldman -->
+    <font id="GoldmanRegular" filename="Goldman/Goldman-102.fnt" />
+    <font id="GoldmanSmall" filename="Goldman/Goldman-52.fnt" />
+    <font id="Goldman40" filename="Goldman/Goldman-40.fnt" />
+    
+    <!-- Silkscreen -->
+    <font id="SilkscreenRegular" filename="Silkscreen/Silkscreen-102.fnt" />
+    <font id="SilkscreenSmall" filename="Silkscreen/Silkscreen-52.fnt" />
+    <font id="Silkscreen40" filename="Silkscreen/Silkscreen-40.fnt" />
+    
+    <!-- TourneyCondensed -->
+    <font id="TourneyCondensedRegular" filename="TourneyCondensed/TourneyCondensed-102.fnt" />
+    <font id="TourneyCondensedSmall" filename="TourneyCondensed/TourneyCondensed-52.fnt" />
+    <font id="TourneyCondensed40" filename="TourneyCondensed/TourneyCondensed-40.fnt" />
 </fonts>

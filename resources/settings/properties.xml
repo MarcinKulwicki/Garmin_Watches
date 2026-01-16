@@ -1,7 +1,10 @@
 <properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
 
-    <!-- Wybór tła (1-2) -->
+    <!-- Wybór tła (1-13) -->
     <property id="BackgroundChoice" type="number">1</property>
+    
+    <!-- Wybór fontu (1-4) -->
+    <property id="FontChoice" type="number">1</property>
 
     <!-- Kolory poszczególnych elementów -->
     <property id="TimeColor" type="number">0xFFFFFF</property>

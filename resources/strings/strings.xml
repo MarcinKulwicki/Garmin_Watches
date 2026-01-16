@@ -4,6 +4,7 @@
 
     <!-- Tytuły ustawień -->
     <string id="BackgroundChoiceTitle">Background</string>
+    <string id="FontChoiceTitle">Font</string>
     <string id="TimeColorTitle">Time Color</string>
     <string id="DateColorTitle">Date Color</string>
     <string id="HeartRateColorTitle">Heart Rate Color</string>
@@ -26,6 +27,12 @@
     <string id="Background11">Background 11</string>
     <string id="Background12">Background 12</string>
     <string id="Background13">Background 13</string>
+
+    <!-- Nazwy fontów -->
+    <string id="FontH">Font H</string>
+    <string id="FontG">Font G</string>
+    <string id="FontS">Font S</string>
+    <string id="FontT">Font T</string>
 
     <!-- Jednostki temperatury -->
     <string id="Celsius">Celsius (°C)</string>

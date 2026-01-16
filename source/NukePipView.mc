@@ -15,6 +15,7 @@ class NukePipView extends WatchUi.WatchFace {
     private var fontSmall;
     private var font40;
     private var currentBackground = 1;
+    private var currentFont = 1;
 
     // ===========================================
     // DOMYŚLNE KOLORY (format 0xRRGGBB):
@@ -30,10 +31,44 @@ class NukePipView extends WatchUi.WatchFace {
     }
 
     function onLayout(dc as Dc) as Void {
-        fontRegular = Application.loadResource(Rez.Fonts.FontRegular);
-        fontSmall = Application.loadResource(Rez.Fonts.FontSmall);
-        font40 = Application.loadResource(Rez.Fonts.Font40);
         loadBackground();
+        loadFonts();
+    }
+
+    function loadFonts() as Void {
+        var choice = 1;
+        try {
+            var val = Application.Properties.getValue("FontChoice");
+            if (val != null && val instanceof Number) {
+                choice = val as Number;
+            }
+        } catch (e) {
+            choice = 1;
+        }
+        
+        currentFont = choice;
+        
+        switch (choice) {
+            case 2: // Goldman
+                fontRegular = Application.loadResource(Rez.Fonts.GoldmanRegular);
+                fontSmall = Application.loadResource(Rez.Fonts.GoldmanSmall);
+                font40 = Application.loadResource(Rez.Fonts.Goldman40);
+                break;
+            case 3: // Silkscreen
+                fontRegular = Application.loadResource(Rez.Fonts.SilkscreenRegular);
+                fontSmall = Application.loadResource(Rez.Fonts.SilkscreenSmall);
+                font40 = Application.loadResource(Rez.Fonts.Silkscreen40);
+                break;
+            case 4: // TourneyCondensed
+                fontRegular = Application.loadResource(Rez.Fonts.TourneyCondensedRegular);
+                fontSmall = Application.loadResource(Rez.Fonts.TourneyCondensedSmall);
+                font40 = Application.loadResource(Rez.Fonts.TourneyCondensed40);
+                break;
+            default: // Handjet
+                fontRegular = Application.loadResource(Rez.Fonts.HandjetRegular);
+                fontSmall = Application.loadResource(Rez.Fonts.HandjetSmall);
+                font40 = Application.loadResource(Rez.Fonts.Handjet40);
+        }
     }
 
     function loadBackground() as Void {
@@ -105,16 +140,29 @@ class NukePipView extends WatchUi.WatchFace {
 
     function onUpdate(dc as Dc) as Void {
         // Sprawdź czy tło się zmieniło
-        var choice = 1;
+        var bgChoice = 1;
         try {
             var val = Application.Properties.getValue("BackgroundChoice");
             if (val != null && val instanceof Number) {
-                choice = val as Number;
+                bgChoice = val as Number;
             }
         } catch (e) {}
         
-        if (choice != currentBackground) {
+        if (bgChoice != currentBackground) {
             loadBackground();
+        }
+
+        // Sprawdź czy font się zmienił
+        var fontChoice = 1;
+        try {
+            var val = Application.Properties.getValue("FontChoice");
+            if (val != null && val instanceof Number) {
+                fontChoice = val as Number;
+            }
+        } catch (e) {}
+        
+        if (fontChoice != currentFont) {
+            loadFonts();
         }
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);

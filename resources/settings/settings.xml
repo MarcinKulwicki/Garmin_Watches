@@ -19,6 +19,16 @@
         </settingConfig>
     </setting>
 
+    <!-- Wybór fontu -->
+    <setting propertyKey="@Properties.FontChoice" title="@Strings.FontChoiceTitle">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.FontH</listEntry>
+            <listEntry value="2">@Strings.FontG</listEntry>
+            <listEntry value="3">@Strings.FontS</listEntry>
+            <listEntry value="4">@Strings.FontT</listEntry>
+        </settingConfig>
+    </setting>
+
     <!-- Kolor czasu -->
     <setting propertyKey="@Properties.TimeColor" title="@Strings.TimeColorTitle">
         <settingConfig type="list">
