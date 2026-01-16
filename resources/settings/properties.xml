@@ -16,6 +16,9 @@
     <!-- Jednostka temperatury: 1 = Celsius, 2 = Fahrenheit -->
     <property id="TemperatureUnit" type="number">1</property>
     
+    <!-- Źródło temperatury: 1 = Weather, 2 = Sensor -->
+    <property id="TemperatureSource" type="number">1</property>
+    
     <!-- Format 24h -->
     <property id="UseMilitaryFormat" type="boolean">false</property>
 

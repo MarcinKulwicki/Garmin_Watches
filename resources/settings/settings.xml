@@ -106,6 +106,14 @@
         </settingConfig>
     </setting>
 
+    <!-- Źródło temperatury -->
+    <setting propertyKey="@Properties.TemperatureSource" title="@Strings.TemperatureSourceTitle">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.TempWeather</listEntry>
+            <listEntry value="2">@Strings.TempSensor</listEntry>
+        </settingConfig>
+    </setting>
+
     <!-- Kolor kroków -->
     <setting propertyKey="@Properties.StepsColor" title="@Strings.StepsColorTitle">
         <settingConfig type="list">

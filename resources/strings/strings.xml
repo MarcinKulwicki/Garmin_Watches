@@ -39,6 +39,11 @@
     <string id="Celsius">Celsius (°C)</string>
     <string id="Fahrenheit">Fahrenheit (°F)</string>
 
+    <!-- Źródło temperatury -->
+    <string id="TemperatureSourceTitle">Temperature Source</string>
+    <string id="TempWeather">Weather</string>
+    <string id="TempSensor">Sensor</string>
+
     <!-- Nazwy kolorów -->
     <string id="ColorBlack">Black</string>
     <string id="ColorWhite">White</string>

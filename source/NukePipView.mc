@@ -8,6 +8,7 @@ import Toybox.SensorHistory;
 import Toybox.Time;
 import Toybox.Time.Gregorian;
 import Toybox.Lang;
+import Toybox.Weather;
 
 class NukePipView extends WatchUi.WatchFace {
     private var backgroundBitmap;
@@ -282,7 +283,23 @@ class NukePipView extends WatchUi.WatchFace {
     }
 
     function drawTemperature(dc as Dc) as Void {
-        var temp = getTemperature();
+        var temp = null;
+        
+        // Sprawdź źródło temperatury (1 = Weather, 2 = Sensor)
+        var source = 1;
+        try {
+            var val = Application.Properties.getValue("TemperatureSource");
+            if (val != null && val instanceof Number) {
+                source = val as Number;
+            }
+        } catch (e) {}
+        
+        if (source == 2) {
+            temp = getSensorTemperature();
+        } else {
+            temp = getWeatherTemperature();
+        }
+        
         var tempStr = "--°";
         
         if (temp != null) {
@@ -299,7 +316,7 @@ class NukePipView extends WatchUi.WatchFace {
                 // Fahrenheit: (C * 9/5) + 32
                 temp = (temp * 9 / 5) + 32;
             }
-            tempStr = temp.toString() + "°";
+            tempStr = temp.toNumber().toString() + "°";
         }
 
         var tempColor = getColor("TemperatureColor", COLOR_TEMPERATURE);
@@ -314,13 +331,23 @@ class NukePipView extends WatchUi.WatchFace {
         );
     }
 
-    function getTemperature() {
+    function getWeatherTemperature() {
+        if (Toybox has :Weather && Weather has :getCurrentConditions) {
+            var conditions = Weather.getCurrentConditions();
+            if (conditions != null && conditions.temperature != null) {
+                return conditions.temperature;
+            }
+        }
+        return null;
+    }
+
+    function getSensorTemperature() {
         if (Toybox has :SensorHistory && SensorHistory has :getTemperatureHistory) {
             var tempIter = SensorHistory.getTemperatureHistory({:period => 1, :order => SensorHistory.ORDER_NEWEST_FIRST});
             if (tempIter != null) {
                 var sample = tempIter.next();
                 if (sample != null && sample.data != null) {
-                    return sample.data.toNumber();
+                    return sample.data;
                 }
             }
         }
