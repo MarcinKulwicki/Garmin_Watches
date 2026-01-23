@@ -18,7 +18,6 @@
     <string id="DataSteps">Steps</string>
     <string id="DataBattery">Battery %</string>
     <string id="DataCalories">Calories</string>
-    <string id="DataDistance">Distance</string>
     <string id="DataFloors">Floors Climbed</string>
     <string id="DataAltitude">Altitude</string>
     <string id="DataNotifications">Notifications</string>
@@ -115,11 +114,6 @@
     <string id="TemperatureSourceTitle">Temperature Source</string>
     <string id="TempWeather">Weather</string>
     <string id="TempSensor">Sensor</string>
-    
-    <!-- Jednostki dystansu -->
-    <string id="DistanceUnitTitle">Distance Unit</string>
-    <string id="DistanceKm">Kilometers (km)</string>
-    <string id="DistanceMiles">Miles (mi)</string>
     
     <!-- Jednostki wysokości -->
     <string id="AltitudeUnitTitle">Altitude Unit</string>

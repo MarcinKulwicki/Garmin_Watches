@@ -10,8 +10,8 @@
     <!-- POLA DANYCH - co wyświetlać gdzie           -->
     <!-- 0=None, 1=Time, 2=Date, 3=HeartRate,        -->
     <!-- 4=Temperature, 5=Steps, 6=Battery,          -->
-    <!-- 7=Calories, 8=Distance, 9=Floors,           -->
-    <!-- 10=Altitude, 11=Notifications, 12=Seconds   -->
+    <!-- 7=Calories, 8=Floors, 9=Altitude,           -->
+    <!-- 10=Notifications, 11=Seconds                -->
     <!-- ============================================ -->
     <property id="UpperFieldData" type="number">2</property>
     <property id="MiddleFieldData" type="number">1</property>
@@ -44,9 +44,6 @@
     
     <!-- Źródło temperatury: 1 = Weather, 2 = Sensor -->
     <property id="TemperatureSource" type="number">1</property>
-    
-    <!-- Jednostka dystansu: 1 = km, 2 = miles -->
-    <property id="DistanceUnit" type="number">1</property>
     
     <!-- Jednostka wysokości: 1 = m, 2 = ft -->
     <property id="AltitudeUnit" type="number">1</property>

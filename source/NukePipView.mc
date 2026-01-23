@@ -19,7 +19,7 @@ class NukePipView extends WatchUi.WatchFace {
     private var currentBackground = 1;
     private var currentFont = 1;
 
-    // Typy danych
+    // Typy danych (przenumerowane bez Distance)
     enum {
         DATA_NONE = 0,
         DATA_TIME = 1,
@@ -29,11 +29,10 @@ class NukePipView extends WatchUi.WatchFace {
         DATA_STEPS = 5,
         DATA_BATTERY = 6,
         DATA_CALORIES = 7,
-        DATA_DISTANCE = 8,
-        DATA_FLOORS = 9,
-        DATA_ALTITUDE = 10,
-        DATA_NOTIFICATIONS = 11,
-        DATA_SECONDS = 12
+        DATA_FLOORS = 8,
+        DATA_ALTITUDE = 9,
+        DATA_NOTIFICATIONS = 10,
+        DATA_SECONDS = 11
     }
 
     // Ustawienia wskaźnika baterii
@@ -358,7 +357,6 @@ class NukePipView extends WatchUi.WatchFace {
             case DATA_STEPS: return getStepsString();
             case DATA_BATTERY: return getBatteryString();
             case DATA_CALORIES: return getCaloriesString();
-            case DATA_DISTANCE: return getDistanceString();
             case DATA_FLOORS: return getFloorsString();
             case DATA_ALTITUDE: return getAltitudeString();
             case DATA_NOTIFICATIONS: return getNotificationsString();
@@ -458,22 +456,6 @@ class NukePipView extends WatchUi.WatchFace {
     function getCaloriesString() as String {
         var info = ActivityMonitor.getInfo();
         if (info.calories != null) { return info.calories.toString(); }
-        return "--";
-    }
-
-    function getDistanceString() as String {
-        var info = ActivityMonitor.getInfo();
-        if (info.distance != null) {
-            var distCm = info.distance;
-            var unit = getNumberProperty("DistanceUnit", 1);
-            if (unit == 2) {
-                var miles = distCm / 160934.0;
-                return miles.format("%.1f");
-            } else {
-                var km = distCm / 100000.0;
-                return km.format("%.1f");
-            }
-        }
         return "--";
     }
 

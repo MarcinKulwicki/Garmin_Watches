@@ -43,11 +43,10 @@
             <listEntry value="5">@Strings.DataSteps</listEntry>
             <listEntry value="6">@Strings.DataBattery</listEntry>
             <listEntry value="7">@Strings.DataCalories</listEntry>
-            <listEntry value="8">@Strings.DataDistance</listEntry>
-            <listEntry value="9">@Strings.DataFloors</listEntry>
-            <listEntry value="10">@Strings.DataAltitude</listEntry>
-            <listEntry value="11">@Strings.DataNotifications</listEntry>
-            <listEntry value="12">@Strings.DataSeconds</listEntry>
+            <listEntry value="8">@Strings.DataFloors</listEntry>
+            <listEntry value="9">@Strings.DataAltitude</listEntry>
+            <listEntry value="10">@Strings.DataNotifications</listEntry>
+            <listEntry value="11">@Strings.DataSeconds</listEntry>
         </settingConfig>
     </setting>
     
@@ -94,11 +93,10 @@
             <listEntry value="5">@Strings.DataSteps</listEntry>
             <listEntry value="6">@Strings.DataBattery</listEntry>
             <listEntry value="7">@Strings.DataCalories</listEntry>
-            <listEntry value="8">@Strings.DataDistance</listEntry>
-            <listEntry value="9">@Strings.DataFloors</listEntry>
-            <listEntry value="10">@Strings.DataAltitude</listEntry>
-            <listEntry value="11">@Strings.DataNotifications</listEntry>
-            <listEntry value="12">@Strings.DataSeconds</listEntry>
+            <listEntry value="8">@Strings.DataFloors</listEntry>
+            <listEntry value="9">@Strings.DataAltitude</listEntry>
+            <listEntry value="10">@Strings.DataNotifications</listEntry>
+            <listEntry value="11">@Strings.DataSeconds</listEntry>
         </settingConfig>
     </setting>
     
@@ -145,11 +143,10 @@
             <listEntry value="5">@Strings.DataSteps</listEntry>
             <listEntry value="6">@Strings.DataBattery</listEntry>
             <listEntry value="7">@Strings.DataCalories</listEntry>
-            <listEntry value="8">@Strings.DataDistance</listEntry>
-            <listEntry value="9">@Strings.DataFloors</listEntry>
-            <listEntry value="10">@Strings.DataAltitude</listEntry>
-            <listEntry value="11">@Strings.DataNotifications</listEntry>
-            <listEntry value="12">@Strings.DataSeconds</listEntry>
+            <listEntry value="8">@Strings.DataFloors</listEntry>
+            <listEntry value="9">@Strings.DataAltitude</listEntry>
+            <listEntry value="10">@Strings.DataNotifications</listEntry>
+            <listEntry value="11">@Strings.DataSeconds</listEntry>
         </settingConfig>
     </setting>
     
@@ -196,11 +193,10 @@
             <listEntry value="5">@Strings.DataSteps</listEntry>
             <listEntry value="6">@Strings.DataBattery</listEntry>
             <listEntry value="7">@Strings.DataCalories</listEntry>
-            <listEntry value="8">@Strings.DataDistance</listEntry>
-            <listEntry value="9">@Strings.DataFloors</listEntry>
-            <listEntry value="10">@Strings.DataAltitude</listEntry>
-            <listEntry value="11">@Strings.DataNotifications</listEntry>
-            <listEntry value="12">@Strings.DataSeconds</listEntry>
+            <listEntry value="8">@Strings.DataFloors</listEntry>
+            <listEntry value="9">@Strings.DataAltitude</listEntry>
+            <listEntry value="10">@Strings.DataNotifications</listEntry>
+            <listEntry value="11">@Strings.DataSeconds</listEntry>
         </settingConfig>
     </setting>
     
@@ -247,11 +243,10 @@
             <listEntry value="5">@Strings.DataSteps</listEntry>
             <listEntry value="6">@Strings.DataBattery</listEntry>
             <listEntry value="7">@Strings.DataCalories</listEntry>
-            <listEntry value="8">@Strings.DataDistance</listEntry>
-            <listEntry value="9">@Strings.DataFloors</listEntry>
-            <listEntry value="10">@Strings.DataAltitude</listEntry>
-            <listEntry value="11">@Strings.DataNotifications</listEntry>
-            <listEntry value="12">@Strings.DataSeconds</listEntry>
+            <listEntry value="8">@Strings.DataFloors</listEntry>
+            <listEntry value="9">@Strings.DataAltitude</listEntry>
+            <listEntry value="10">@Strings.DataNotifications</listEntry>
+            <listEntry value="11">@Strings.DataSeconds</listEntry>
         </settingConfig>
     </setting>
     
@@ -392,13 +387,6 @@
         <settingConfig type="list">
             <listEntry value="1">@Strings.TempWeather</listEntry>
             <listEntry value="2">@Strings.TempSensor</listEntry>
-        </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.DistanceUnit" title="@Strings.DistanceUnitTitle">
-        <settingConfig type="list">
-            <listEntry value="1">@Strings.DistanceKm</listEntry>
-            <listEntry value="2">@Strings.DistanceMiles</listEntry>
         </settingConfig>
     </setting>
     
