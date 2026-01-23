@@ -290,7 +290,7 @@ class NukePipView extends WatchUi.WatchFace {
         drawBatteryIndicator(dc);
         
         var centerX = dc.getWidth() / 2;
-        var margin = 25; // Margines od krawędzi
+        var margin = 35; // Margines od krawędzi dla długich tekstów
         
         // Rysuj wszystkie pola
         // Górne, środkowe i dolne - wycentrowane
@@ -298,11 +298,44 @@ class NukePipView extends WatchUi.WatchFace {
         drawField(dc, "Middle", centerX, dc.getHeight() * 4 / 10, fontRegular, Graphics.TEXT_JUSTIFY_CENTER);
         drawField(dc, "Lower", centerX, dc.getHeight() * 13 / 16, fontSmall, Graphics.TEXT_JUSTIFY_CENTER);
         
-        // Lewe - przy lewej krawędzi, wyrównane do lewej
-        drawField(dc, "Left", margin, dc.getHeight() * 6 / 10, fontSmall, Graphics.TEXT_JUSTIFY_LEFT);
+        // Lewe i prawe - pozycja zależy od długości tekstu
+        drawSideField(dc, "Left", dc.getHeight() * 6 / 10, true);
+        drawSideField(dc, "Right", dc.getHeight() * 6 / 10, false);
+    }
+    
+    function drawSideField(dc as Dc, fieldName as String, y as Number, isLeft as Boolean) as Void {
+        var dataType = getNumberProperty(fieldName + "FieldData", DATA_NONE);
+        if (dataType == DATA_NONE) { return; }
         
-        // Prawe - przy prawej krawędzi, wyrównane do prawej
-        drawField(dc, "Right", dc.getWidth() - margin, dc.getHeight() * 6 / 10, fontSmall, Graphics.TEXT_JUSTIFY_RIGHT);
+        var color = getColorFromProperty(fieldName + "FieldColor", fieldName + "FieldColorCustom", COLOR_DEFAULT);
+        var text = getDataString(dataType);
+        var textLen = text.length();
+        
+        var x;
+        var justification;
+        
+        if (textLen <= 3) {
+            // Krótki tekst - pozycja jak oryginalne HR/Temperature (bliżej krawędzi)
+            if (isLeft) {
+                x = dc.getWidth() / 5;
+            } else {
+                x = dc.getWidth() * 4 / 5;
+            }
+            justification = Graphics.TEXT_JUSTIFY_CENTER;
+        } else {
+            // Długi tekst - przy krawędzi z marginesem
+            var margin = 25;
+            if (isLeft) {
+                x = margin;
+                justification = Graphics.TEXT_JUSTIFY_LEFT;
+            } else {
+                x = dc.getWidth() - margin;
+                justification = Graphics.TEXT_JUSTIFY_RIGHT;
+            }
+        }
+        
+        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, fontSmall, text, justification | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
     function drawField(dc as Dc, fieldName as String, x as Number, y as Number, font, justification as Number) as Void {
