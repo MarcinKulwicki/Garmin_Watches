@@ -9,6 +9,7 @@ import Toybox.Time;
 import Toybox.Time.Gregorian;
 import Toybox.Lang;
 import Toybox.Weather;
+import Toybox.Math;
 
 class NukePipView extends WatchUi.WatchFace {
     private var backgroundBitmap;
@@ -17,6 +18,19 @@ class NukePipView extends WatchUi.WatchFace {
     private var font40;
     private var currentBackground = 1;
     private var currentFont = 1;
+
+    // ===========================================
+    // USTAWIENIA WSKAŹNIKA BATERII
+    // ===========================================
+    private const BATTERY_TICK_LENGTH = 15;      // Długość widocznej części kreski w px
+    private const BATTERY_TICK_WIDTH = 5;        // Grubość kreski w pikselach
+    private const BATTERY_TICK_OVERFLOW = 50;    // Ile px kreska wychodzi ZA krawędź
+    private const BATTERY_MAX_TICKS = 60;        // Maksymalna ilość kresek (jak minuty)
+    
+    // Kolory baterii (gradient)
+    private const BATTERY_COLOR_FULL = 0x008000;    // Zielony - pełna bateria
+    private const BATTERY_COLOR_MID = 0xFFFF12;     // Żółty - średnia
+    private const BATTERY_COLOR_LOW = 0x6E0300;     // Ciemny czerwony - niska
 
     // ===========================================
     // DOMYŚLNE KOLORY (format 0xRRGGBB):
@@ -50,27 +64,27 @@ class NukePipView extends WatchUi.WatchFace {
         currentFont = choice;
         
         switch (choice) {
-            case 2: // Goldman
+            case 2:
                 fontRegular = Application.loadResource(Rez.Fonts.GoldmanRegular);
                 fontSmall = Application.loadResource(Rez.Fonts.GoldmanSmall);
                 font40 = Application.loadResource(Rez.Fonts.Goldman40);
                 break;
-            case 3: // Silkscreen
+            case 3:
                 fontRegular = Application.loadResource(Rez.Fonts.SilkscreenRegular);
                 fontSmall = Application.loadResource(Rez.Fonts.SilkscreenSmall);
                 font40 = Application.loadResource(Rez.Fonts.Silkscreen40);
                 break;
-            case 4: // TourneyCondensed
+            case 4:
                 fontRegular = Application.loadResource(Rez.Fonts.TourneyCondensedRegular);
                 fontSmall = Application.loadResource(Rez.Fonts.TourneyCondensedSmall);
                 font40 = Application.loadResource(Rez.Fonts.TourneyCondensed40);
                 break;
-            case 5: // Orbitron
+            case 5:
                 fontRegular = Application.loadResource(Rez.Fonts.OrbitronRegular);
                 fontSmall = Application.loadResource(Rez.Fonts.OrbitronSmall);
                 font40 = Application.loadResource(Rez.Fonts.Orbitron40);
                 break;
-            default: // Handjet
+            default:
                 fontRegular = Application.loadResource(Rez.Fonts.HandjetRegular);
                 fontSmall = Application.loadResource(Rez.Fonts.HandjetSmall);
                 font40 = Application.loadResource(Rez.Fonts.Handjet40);
@@ -138,14 +152,103 @@ class NukePipView extends WatchUi.WatchFace {
             if (color != null && color instanceof Number) {
                 return color as Number;
             }
-        } catch (e) {
-            // Fallback
-        }
+        } catch (e) {}
         return defaultColor;
     }
 
+    // Interpolacja między dwoma kolorami
+    function interpolateColor(color1 as Number, color2 as Number, ratio as Float) as Number {
+        var r1 = (color1 >> 16) & 0xFF;
+        var g1 = (color1 >> 8) & 0xFF;
+        var b1 = color1 & 0xFF;
+        
+        var r2 = (color2 >> 16) & 0xFF;
+        var g2 = (color2 >> 8) & 0xFF;
+        var b2 = color2 & 0xFF;
+        
+        var r = (r1 + ((r2 - r1) * ratio)).toNumber();
+        var g = (g1 + ((g2 - g1) * ratio)).toNumber();
+        var b = (b1 + ((b2 - b1) * ratio)).toNumber();
+        
+        return (r << 16) | (g << 8) | b;
+    }
+
+    // Pobierz kolor dla danego poziomu baterii (0-100)
+    function getBatteryColor(batteryPercent as Number) as Number {
+        if (batteryPercent >= 50) {
+            // Od 50% do 100%: zielony -> żółty
+            var ratio = (100 - batteryPercent) / 50.0;
+            return interpolateColor(BATTERY_COLOR_FULL, BATTERY_COLOR_MID, ratio);
+        } else {
+            // Od 0% do 50%: żółty -> ciemny czerwony
+            var ratio = (50 - batteryPercent) / 50.0;
+            return interpolateColor(BATTERY_COLOR_MID, BATTERY_COLOR_LOW, ratio);
+        }
+    }
+
+    function drawBatteryIndicator(dc as Dc) as Void {
+        var stats = System.getSystemStats();
+        var batteryPercent = stats.battery.toNumber();
+        
+        // Oblicz ile kresek narysować
+        var tickCount = ((batteryPercent * BATTERY_MAX_TICKS) / 100.0).toNumber();
+        if (tickCount < 1 && batteryPercent > 0) {
+            tickCount = 1;
+        }
+        
+        var centerX = dc.getWidth() / 2;
+        var centerY = dc.getHeight() / 2;
+        
+        // Radius WIĘKSZY niż ekran - kreski zaczynają się ZA krawędzią
+        var outerRadius = dc.getWidth() / 2 + BATTERY_TICK_OVERFLOW;
+        var innerRadius = outerRadius - BATTERY_TICK_LENGTH - BATTERY_TICK_OVERFLOW;
+        
+        // Kolor zależny od poziomu baterii
+        var tickColor = getBatteryColor(batteryPercent);
+        dc.setColor(tickColor, Graphics.COLOR_TRANSPARENT);
+        
+        // Włącz antyaliasing jeśli dostępny
+        if (dc has :setAntiAlias) {
+            dc.setAntiAlias(true);
+        }
+        
+        // Rysuj kreski - zaczynamy od góry (12:00) i idziemy zgodnie z ruchem wskazówek
+        for (var i = 0; i < tickCount; i++) {
+            var angle = -90 + (i * 360.0 / BATTERY_MAX_TICKS);
+            var angleRad = Math.toRadians(angle);
+            
+            var cosA = Math.cos(angleRad);
+            var sinA = Math.sin(angleRad);
+            
+            // Punkt zewnętrzny (ZA krawędzią ekranu)
+            var outerX = centerX + (outerRadius * cosA);
+            var outerY = centerY + (outerRadius * sinA);
+            
+            // Punkt wewnętrzny (w kierunku środka)
+            var innerX = centerX + (innerRadius * cosA);
+            var innerY = centerY + (innerRadius * sinA);
+            
+            // Rysuj grubą kreskę jako wypełniony polygon dla lepszej jakości
+            var perpX = sinA * BATTERY_TICK_WIDTH / 2;
+            var perpY = -cosA * BATTERY_TICK_WIDTH / 2;
+            
+            var points = [
+                [outerX - perpX, outerY - perpY],
+                [outerX + perpX, outerY + perpY],
+                [innerX + perpX, innerY + perpY],
+                [innerX - perpX, innerY - perpY]
+            ];
+            
+            dc.fillPolygon(points);
+        }
+        
+        // Wyłącz antyaliasing
+        if (dc has :setAntiAlias) {
+            dc.setAntiAlias(false);
+        }
+    }
+
     function onUpdate(dc as Dc) as Void {
-        // Sprawdź czy tło się zmieniło
         var bgChoice = 1;
         try {
             var val = Application.Properties.getValue("BackgroundChoice");
@@ -158,7 +261,6 @@ class NukePipView extends WatchUi.WatchFace {
             loadBackground();
         }
 
-        // Sprawdź czy font się zmienił
         var fontChoice = 1;
         try {
             var val = Application.Properties.getValue("FontChoice");
@@ -181,6 +283,9 @@ class NukePipView extends WatchUi.WatchFace {
             var y = (dc.getHeight() - imgH) / 2;
             dc.drawBitmap(x, y, backgroundBitmap);
         }
+
+        // Rysuj wskaźnik baterii
+        drawBatteryIndicator(dc);
 
         drawDate(dc);
         drawTime(dc);
@@ -285,7 +390,6 @@ class NukePipView extends WatchUi.WatchFace {
     function drawTemperature(dc as Dc) as Void {
         var temp = null;
         
-        // Sprawdź źródło temperatury (1 = Weather, 2 = Sensor)
         var source = 1;
         try {
             var val = Application.Properties.getValue("TemperatureSource");
@@ -303,7 +407,6 @@ class NukePipView extends WatchUi.WatchFace {
         var tempStr = "--°";
         
         if (temp != null) {
-            // Sprawdź jednostkę temperatury
             var unit = 1;
             try {
                 var val = Application.Properties.getValue("TemperatureUnit");
@@ -313,7 +416,6 @@ class NukePipView extends WatchUi.WatchFace {
             } catch (e) {}
             
             if (unit == 2) {
-                // Fahrenheit: (C * 9/5) + 32
                 temp = (temp * 9 / 5) + 32;
             }
             tempStr = temp.toNumber().toString() + "°";
