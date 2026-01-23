@@ -2,21 +2,83 @@
 
     <string id="AppName">Nuke Pip</string>
 
-    <!-- Tytuły ustawień -->
+    <!-- Tytuły ustawień podstawowych -->
     <string id="BackgroundChoiceTitle">Background</string>
     <string id="FontChoiceTitle">Font</string>
-    <string id="TimeColorTitle">Time Color</string>
-    <string id="DateColorTitle">Date Color</string>
-    <string id="HeartRateColorTitle">Heart Rate Color</string>
-    <string id="TemperatureColorTitle">Temperature Color</string>
-    <string id="StepsColorTitle">Steps Color</string>
     <string id="MilitaryFormatTitle">24 Hour Format</string>
-    <string id="TemperatureUnitTitle">Temperature Unit</string>
+
+    <!-- ============================================ -->
+    <!-- TYPY DANYCH                                 -->
+    <!-- ============================================ -->
+    <string id="DataNone">None</string>
+    <string id="DataTime">Time</string>
+    <string id="DataDate">Date</string>
+    <string id="DataHeartRate">Heart Rate</string>
+    <string id="DataTemperature">Temperature</string>
+    <string id="DataSteps">Steps</string>
+    <string id="DataBattery">Battery %</string>
+    <string id="DataCalories">Calories</string>
+    <string id="DataDistance">Distance</string>
+    <string id="DataFloors">Floors Climbed</string>
+    <string id="DataAltitude">Altitude</string>
+    <string id="DataNotifications">Notifications</string>
+    <string id="DataSeconds">Seconds</string>
+
+    <!-- ============================================ -->
+    <!-- KONFIGURACJA PÓL                            -->
+    <!-- ============================================ -->
+    <string id="UpperFieldDataTitle">▶ Upper Field Data</string>
+    <string id="UpperFieldColorTitle">↳ Upper Color</string>
+    <string id="UpperFieldColorCustomTitle">↳ Upper Custom HEX</string>
+    
+    <string id="MiddleFieldDataTitle">▶ Middle Field Data</string>
+    <string id="MiddleFieldColorTitle">↳ Middle Color</string>
+    <string id="MiddleFieldColorCustomTitle">↳ Middle Custom HEX</string>
+    
+    <string id="LowerFieldDataTitle">▶ Lower Field Data</string>
+    <string id="LowerFieldColorTitle">↳ Lower Color</string>
+    <string id="LowerFieldColorCustomTitle">↳ Lower Custom HEX</string>
+    
+    <string id="LeftFieldDataTitle">▶ Left Field Data</string>
+    <string id="LeftFieldColorTitle">↳ Left Color</string>
+    <string id="LeftFieldColorCustomTitle">↳ Left Custom HEX</string>
+    
+    <string id="RightFieldDataTitle">▶ Right Field Data</string>
+    <string id="RightFieldColorTitle">↳ Right Color</string>
+    <string id="RightFieldColorCustomTitle">↳ Right Custom HEX</string>
+
+    <!-- ============================================ -->
+    <!-- PREDEFINIOWANE KOLORY                       -->
+    <!-- ============================================ -->
+    <string id="ColorWhite">White [FFFFFF]</string>
+    <string id="ColorBlack">Black [000000]</string>
+    <string id="ColorRed">Red [FF0000]</string>
+    <string id="ColorDarkRed">Dark Red [8B0000]</string>
+    <string id="ColorGreen">Green [00FF00]</string>
+    <string id="ColorDarkGreen">Dark Green [006400]</string>
+    <string id="ColorBlue">Blue [0000FF]</string>
+    <string id="ColorYellow">Yellow [FFFF00]</string>
+    <string id="ColorOrange">Orange [FF8C00]</string>
+    <string id="ColorPurple">Purple [8B00FF]</string>
+    <string id="ColorPink">Pink [FF69B4]</string>
+    <string id="ColorCyan">Cyan [00FFFF]</string>
+    <string id="ColorTeal">Teal [20B2AA]</string>
+    <string id="ColorGold">Gold [FFD700]</string>
+    <string id="ColorSilver">Silver [C0C0C0]</string>
+    <string id="ColorLime">Lime [32CD32]</string>
+    <string id="ColorCoral">Coral [FF6B6B]</string>
+    <string id="ColorNavy">Navy [000080]</string>
+    <string id="ColorBeige">Beige [F5DEB3]</string>
+    <string id="ColorGray">Gray [808080]</string>
+    <string id="ColorCustom">Custom HEX...</string>
 
     <!-- Kolory baterii -->
-    <string id="BatteryColorFullTitle">Battery Full 100%</string>
-    <string id="BatteryColorMidTitle">Battery Mid 50%</string>
-    <string id="BatteryColorLowTitle">Battery Low 0%</string>
+    <string id="BatteryColorFullTitle">▶ Battery Full 100%</string>
+    <string id="BatteryColorFullCustomTitle">↳ Full Custom HEX</string>
+    <string id="BatteryColorMidTitle">▶ Battery Mid 50%</string>
+    <string id="BatteryColorMidCustomTitle">↳ Mid Custom HEX</string>
+    <string id="BatteryColorLowTitle">▶ Battery Low 0%</string>
+    <string id="BatteryColorLowCustomTitle">↳ Low Custom HEX</string>
     
     <!-- Instrukcja HEX -->
     <string id="ColorHelpTitle">HEX Color Examples</string>
@@ -45,6 +107,7 @@
     <string id="FontO">Font O</string>
 
     <!-- Jednostki temperatury -->
+    <string id="TemperatureUnitTitle">Temperature Unit</string>
     <string id="Celsius">Celsius (°C)</string>
     <string id="Fahrenheit">Fahrenheit (°F)</string>
 
@@ -52,5 +115,15 @@
     <string id="TemperatureSourceTitle">Temperature Source</string>
     <string id="TempWeather">Weather</string>
     <string id="TempSensor">Sensor</string>
+    
+    <!-- Jednostki dystansu -->
+    <string id="DistanceUnitTitle">Distance Unit</string>
+    <string id="DistanceKm">Kilometers (km)</string>
+    <string id="DistanceMiles">Miles (mi)</string>
+    
+    <!-- Jednostki wysokości -->
+    <string id="AltitudeUnitTitle">Altitude Unit</string>
+    <string id="AltitudeMeters">Meters (m)</string>
+    <string id="AltitudeFeet">Feet (ft)</string>
 
 </strings>

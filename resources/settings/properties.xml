@@ -6,23 +6,50 @@
     <!-- Wybór fontu (1-5) -->
     <property id="FontChoice" type="number">1</property>
 
-    <!-- Kolory HEX -->
-    <property id="TimeColor" type="string">FFFFFF</property>
-    <property id="DateColor" type="string">FFFFFF</property>
-    <property id="HeartRateColor" type="string">FF0000</property>
-    <property id="TemperatureColor" type="string">FFFF00</property>
-    <property id="StepsColor" type="string">00AAFF</property>
+    <!-- ============================================ -->
+    <!-- POLA DANYCH - co wyświetlać gdzie           -->
+    <!-- 0=None, 1=Time, 2=Date, 3=HeartRate,        -->
+    <!-- 4=Temperature, 5=Steps, 6=Battery,          -->
+    <!-- 7=Calories, 8=Distance, 9=Floors,           -->
+    <!-- 10=Altitude, 11=Notifications, 12=Seconds   -->
+    <!-- ============================================ -->
+    <property id="UpperFieldData" type="number">2</property>
+    <property id="MiddleFieldData" type="number">1</property>
+    <property id="LowerFieldData" type="number">5</property>
+    <property id="LeftFieldData" type="number">3</property>
+    <property id="RightFieldData" type="number">4</property>
+
+    <!-- Kolory pól (1-20 predefiniowane, 21 = custom) -->
+    <property id="UpperFieldColor" type="number">1</property>
+    <property id="UpperFieldColorCustom" type="string">FFFFFF</property>
+    <property id="MiddleFieldColor" type="number">1</property>
+    <property id="MiddleFieldColorCustom" type="string">FFFFFF</property>
+    <property id="LowerFieldColor" type="number">12</property>
+    <property id="LowerFieldColorCustom" type="string">00AAFF</property>
+    <property id="LeftFieldColor" type="number">4</property>
+    <property id="LeftFieldColorCustom" type="string">FF0000</property>
+    <property id="RightFieldColor" type="number">8</property>
+    <property id="RightFieldColorCustom" type="string">FFFF00</property>
     
-    <!-- Kolory baterii HEX -->
-    <property id="BatteryColorFull" type="string">008000</property>
-    <property id="BatteryColorMid" type="string">FFFF00</property>
-    <property id="BatteryColorLow" type="string">6E0300</property>
+    <!-- Kolory baterii (1-20 predefiniowane, 21 = custom) -->
+    <property id="BatteryColorFull" type="number">5</property>
+    <property id="BatteryColorFullCustom" type="string">00FF00</property>
+    <property id="BatteryColorMid" type="number">8</property>
+    <property id="BatteryColorMidCustom" type="string">FFFF00</property>
+    <property id="BatteryColorLow" type="number">4</property>
+    <property id="BatteryColorLowCustom" type="string">8B0000</property>
     
     <!-- Jednostka temperatury: 1 = Celsius, 2 = Fahrenheit -->
     <property id="TemperatureUnit" type="number">1</property>
     
     <!-- Źródło temperatury: 1 = Weather, 2 = Sensor -->
     <property id="TemperatureSource" type="number">1</property>
+    
+    <!-- Jednostka dystansu: 1 = km, 2 = miles -->
+    <property id="DistanceUnit" type="number">1</property>
+    
+    <!-- Jednostka wysokości: 1 = m, 2 = ft -->
+    <property id="AltitudeUnit" type="number">1</property>
     
     <!-- Format 24h -->
     <property id="UseMilitaryFormat" type="boolean">false</property>
