@@ -13,6 +13,15 @@
     <string id="MilitaryFormatTitle">24 Hour Format</string>
     <string id="TemperatureUnitTitle">Temperature Unit</string>
 
+    <!-- Kolory baterii -->
+    <string id="BatteryColorFullTitle">Battery Full 100%</string>
+    <string id="BatteryColorMidTitle">Battery Mid 50%</string>
+    <string id="BatteryColorLowTitle">Battery Low 0%</string>
+    
+    <!-- Instrukcja HEX -->
+    <string id="ColorHelpTitle">HEX Color Examples</string>
+    <string id="ColorHelpText">Purple 8B00FF, Pink FF69B4, Orange FF8C00, Beige F5DEB3, Coral FF6B6B, Teal 20B2AA, Gold FFD700, Lime 32CD32, Cyan 00FFFF, Navy 000080</string>
+
     <!-- Nazwy teł -->
     <string id="Background1">Background 1</string>
     <string id="Background2">Background 2</string>
@@ -43,30 +52,5 @@
     <string id="TemperatureSourceTitle">Temperature Source</string>
     <string id="TempWeather">Weather</string>
     <string id="TempSensor">Sensor</string>
-
-    <!-- ========== USTAWIENIA BATERII ========== -->
-    <string id="BatteryColorModeTitle">Battery Indicator Colors</string>
-    <string id="BatteryModeDefault">Default (Green→Yellow→Red)</string>
-    <string id="BatteryModeCustom">Custom Colors</string>
-    
-    <string id="BatteryColorFullTitle">Battery Full Color (100%)</string>
-    <string id="BatteryColorMidTitle">Battery Mid Color (50%)</string>
-    <string id="BatteryColorLowTitle">Battery Low Color (0%)</string>
-
-    <!-- Nazwy kolorów -->
-    <string id="ColorBlack">Black</string>
-    <string id="ColorWhite">White</string>
-    <string id="ColorRed">Red</string>
-    <string id="ColorDarkRed">Dark Red</string>
-    <string id="ColorGreen">Green</string>
-    <string id="ColorDarkGreen">Dark Green</string>
-    <string id="ColorBlue">Blue</string>
-    <string id="ColorYellow">Yellow</string>
-    <string id="ColorYellowBright">Bright Yellow</string>
-    <string id="ColorOrange">Orange</string>
-    <string id="ColorPink">Pink</string>
-    <string id="ColorCyan">Cyan</string>
-    <string id="ColorPurple">Purple</string>
-    <string id="ColorMint">Mint</string>
 
 </strings>

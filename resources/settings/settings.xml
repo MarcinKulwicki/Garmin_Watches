@@ -30,72 +30,38 @@
         </settingConfig>
     </setting>
 
-    <!-- Kolor czasu -->
+    <!-- Kolory HEX -->
     <setting propertyKey="@Properties.TimeColor" title="@Strings.TimeColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
-        </settingConfig>
+        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- Kolor daty -->
     <setting propertyKey="@Properties.DateColor" title="@Strings.DateColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
-        </settingConfig>
+        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- Kolor tętna -->
     <setting propertyKey="@Properties.HeartRateColor" title="@Strings.HeartRateColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
-        </settingConfig>
+        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- Kolor temperatury -->
     <setting propertyKey="@Properties.TemperatureColor" title="@Strings.TemperatureColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
-        </settingConfig>
+        <settingConfig type="alphaNumeric" maxLength="6" />
+    </setting>
+
+    <setting propertyKey="@Properties.StepsColor" title="@Strings.StepsColorTitle">
+        <settingConfig type="alphaNumeric" maxLength="6" />
+    </setting>
+
+    <!-- Kolory baterii -->
+    <setting propertyKey="@Properties.BatteryColorFull" title="@Strings.BatteryColorFullTitle">
+        <settingConfig type="alphaNumeric" maxLength="6" />
+    </setting>
+
+    <setting propertyKey="@Properties.BatteryColorMid" title="@Strings.BatteryColorMidTitle">
+        <settingConfig type="alphaNumeric" maxLength="6" />
+    </setting>
+
+    <setting propertyKey="@Properties.BatteryColorLow" title="@Strings.BatteryColorLowTitle">
+        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <!-- Jednostka temperatury -->
@@ -114,85 +80,9 @@
         </settingConfig>
     </setting>
 
-    <!-- Kolor kroków -->
-    <setting propertyKey="@Properties.StepsColor" title="@Strings.StepsColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
-        </settingConfig>
-    </setting>
-
     <!-- Format 24h -->
     <setting propertyKey="@Properties.UseMilitaryFormat" title="@Strings.MilitaryFormatTitle">
         <settingConfig type="boolean" />
-    </setting>
-
-    <!-- ========== USTAWIENIA BATERII ========== -->
-    
-    <!-- Tryb kolorów baterii -->
-    <setting propertyKey="@Properties.BatteryColorMode" title="@Strings.BatteryColorModeTitle">
-        <settingConfig type="list">
-            <listEntry value="1">@Strings.BatteryModeDefault</listEntry>
-            <listEntry value="2">@Strings.BatteryModeCustom</listEntry>
-        </settingConfig>
-    </setting>
-
-    <!-- Custom kolor baterii - pełna (100%) -->
-    <setting propertyKey="@Properties.BatteryColorFull" title="@Strings.BatteryColorFullTitle">
-        <settingConfig type="list">
-            <listEntry value="0x008000">@Strings.ColorDarkGreen</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xAAFFAA">@Strings.ColorMint</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-        </settingConfig>
-    </setting>
-
-    <!-- Custom kolor baterii - średnia (50%) -->
-    <setting propertyKey="@Properties.BatteryColorMid" title="@Strings.BatteryColorMidTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFFFF12">@Strings.ColorYellowBright</listEntry>
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-        </settingConfig>
-    </setting>
-
-    <!-- Custom kolor baterii - niska (0%) -->
-    <setting propertyKey="@Properties.BatteryColorLow" title="@Strings.BatteryColorLowTitle">
-        <settingConfig type="list">
-            <listEntry value="0x6E0300">@Strings.ColorDarkRed</listEntry>
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0xFF8000">@Strings.ColorOrange</listEntry>
-            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
-            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>
-            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-            <listEntry value="0xFFFF00">@Strings.ColorYellow</listEntry>
-            <listEntry value="0x00AAFF">@Strings.ColorBlue</listEntry>
-            <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
-        </settingConfig>
     </setting>
 
 </settings>

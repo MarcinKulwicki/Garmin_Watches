@@ -23,14 +23,17 @@ class NukePipView extends WatchUi.WatchFace {
     // USTAWIENIA WSKAŹNIKA BATERII
     // ===========================================
     private const BATTERY_TICK_LENGTH = 12;      // Długość widocznej części kreski w px
-    private const BATTERY_TICK_WIDTH = 5;        // Grubość kreski w pikselach
-    private const BATTERY_TICK_OVERFLOW = 20;    // Ile px kreska wychodzi ZA krawędź
+    private const BATTERY_TICK_WIDTH = 4;        // Grubość kreski w pikselach
+    private const BATTERY_TICK_OVERFLOW = 10;    // Ile px kreska wychodzi ZA krawędź
     private const BATTERY_MAX_TICKS = 60;        // Maksymalna ilość kresek (jak minuty)
     
     // Domyślne kolory baterii (gradient)
     private const BATTERY_COLOR_FULL_DEFAULT = 0x008000;    // Zielony - pełna bateria
     private const BATTERY_COLOR_MID_DEFAULT = 0xFFFF12;     // Żółty - średnia
     private const BATTERY_COLOR_LOW_DEFAULT = 0x6E0300;     // Ciemny czerwony - niska
+    
+    // Unity-style "missing texture" magenta dla błędnych HEX
+    private const COLOR_INVALID_HEX = 0xFF00FF;
 
     // ===========================================
     // DOMYŚLNE KOLORY (format 0xRRGGBB):
@@ -148,12 +151,78 @@ class NukePipView extends WatchUi.WatchFace {
 
     function getColor(propertyId as String, defaultColor as Number) as Number {
         try {
-            var color = Application.Properties.getValue(propertyId);
-            if (color != null && color instanceof Number) {
-                return color as Number;
+            var hexVal = Application.Properties.getValue(propertyId);
+            if (hexVal != null && hexVal instanceof String) {
+                return parseHexColor(hexVal as String, defaultColor);
             }
         } catch (e) {}
         return defaultColor;
+    }
+
+    // Parsowanie koloru HEX ze stringa (np. "FF5500" lub "#FF5500")
+    function parseHexColor(hexString as String, defaultColor as Number) as Number {
+        if (hexString == null || hexString.length() == 0) {
+            return defaultColor;
+        }
+        
+        var hex = hexString.toUpper();
+        
+        // Usuń # jeśli jest na początku
+        if (hex.substring(0, 1).equals("#")) {
+            hex = hex.substring(1, hex.length());
+        }
+        
+        // Sprawdź długość - musi być 6 znaków
+        if (hex.length() != 6) {
+            return COLOR_INVALID_HEX;
+        }
+        
+        // Parsuj każdy komponent (R, G, B)
+        var r = parseHexByte(hex.substring(0, 2));
+        var g = parseHexByte(hex.substring(2, 4));
+        var b = parseHexByte(hex.substring(4, 6));
+        
+        // Jeśli którykolwiek jest nieprawidłowy, zwróć magenta
+        if (r < 0 || g < 0 || b < 0) {
+            return COLOR_INVALID_HEX;
+        }
+        
+        return (r << 16) | (g << 8) | b;
+    }
+    
+    // Parsowanie 2-znakowego HEX na liczbę (00-FF -> 0-255)
+    function parseHexByte(hexByte as String) as Number {
+        if (hexByte.length() != 2) {
+            return -1;
+        }
+        
+        var result = 0;
+        for (var i = 0; i < 2; i++) {
+            var c = hexByte.substring(i, i + 1);
+            var val = 0;
+            
+            if (c.equals("0")) { val = 0; }
+            else if (c.equals("1")) { val = 1; }
+            else if (c.equals("2")) { val = 2; }
+            else if (c.equals("3")) { val = 3; }
+            else if (c.equals("4")) { val = 4; }
+            else if (c.equals("5")) { val = 5; }
+            else if (c.equals("6")) { val = 6; }
+            else if (c.equals("7")) { val = 7; }
+            else if (c.equals("8")) { val = 8; }
+            else if (c.equals("9")) { val = 9; }
+            else if (c.equals("A")) { val = 10; }
+            else if (c.equals("B")) { val = 11; }
+            else if (c.equals("C")) { val = 12; }
+            else if (c.equals("D")) { val = 13; }
+            else if (c.equals("E")) { val = 14; }
+            else if (c.equals("F")) { val = 15; }
+            else { return -1; } // Nieprawidłowy znak
+            
+            result = result * 16 + val;
+        }
+        
+        return result;
     }
 
     // Interpolacja między dwoma kolorami
@@ -175,24 +244,9 @@ class NukePipView extends WatchUi.WatchFace {
 
     // Pobierz kolor dla danego poziomu baterii (0-100)
     function getBatteryColor(batteryPercent as Number) as Number {
-        // Sprawdź czy używamy custom kolorów
-        var useCustom = false;
-        try {
-            var val = Application.Properties.getValue("BatteryColorMode");
-            if (val != null && val instanceof Number && val == 2) {
-                useCustom = true;
-            }
-        } catch (e) {}
-        
-        var colorFull = BATTERY_COLOR_FULL_DEFAULT;
-        var colorMid = BATTERY_COLOR_MID_DEFAULT;
-        var colorLow = BATTERY_COLOR_LOW_DEFAULT;
-        
-        if (useCustom) {
-            colorFull = getColor("BatteryColorFull", BATTERY_COLOR_FULL_DEFAULT);
-            colorMid = getColor("BatteryColorMid", BATTERY_COLOR_MID_DEFAULT);
-            colorLow = getColor("BatteryColorLow", BATTERY_COLOR_LOW_DEFAULT);
-        }
+        var colorFull = getColor("BatteryColorFull", BATTERY_COLOR_FULL_DEFAULT);
+        var colorMid = getColor("BatteryColorMid", BATTERY_COLOR_MID_DEFAULT);
+        var colorLow = getColor("BatteryColorLow", BATTERY_COLOR_LOW_DEFAULT);
         
         if (batteryPercent >= 50) {
             // Od 50% do 100%: pełna -> średnia

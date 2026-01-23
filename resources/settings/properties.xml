@@ -6,12 +6,17 @@
     <!-- Wybór fontu (1-5) -->
     <property id="FontChoice" type="number">1</property>
 
-    <!-- Kolory poszczególnych elementów -->
-    <property id="TimeColor" type="number">0xFFFFFF</property>
-    <property id="DateColor" type="number">0xFFFFFF</property>
-    <property id="HeartRateColor" type="number">0xFF0000</property>
-    <property id="TemperatureColor" type="number">0xFFFF00</property>
-    <property id="StepsColor" type="number">0x00AAFF</property>
+    <!-- Kolory HEX -->
+    <property id="TimeColor" type="string">FFFFFF</property>
+    <property id="DateColor" type="string">FFFFFF</property>
+    <property id="HeartRateColor" type="string">FF0000</property>
+    <property id="TemperatureColor" type="string">FFFF00</property>
+    <property id="StepsColor" type="string">00AAFF</property>
+    
+    <!-- Kolory baterii HEX -->
+    <property id="BatteryColorFull" type="string">008000</property>
+    <property id="BatteryColorMid" type="string">FFFF00</property>
+    <property id="BatteryColorLow" type="string">6E0300</property>
     
     <!-- Jednostka temperatury: 1 = Celsius, 2 = Fahrenheit -->
     <property id="TemperatureUnit" type="number">1</property>
@@ -21,13 +26,5 @@
     
     <!-- Format 24h -->
     <property id="UseMilitaryFormat" type="boolean">false</property>
-
-    <!-- Tryb kolorów baterii: 1 = Default, 2 = Custom -->
-    <property id="BatteryColorMode" type="number">1</property>
-    
-    <!-- Custom kolory baterii -->
-    <property id="BatteryColorFull" type="number">0x008000</property>
-    <property id="BatteryColorMid" type="number">0xFFFF12</property>
-    <property id="BatteryColorLow" type="number">0x6E0300</property>
 
 </properties>
