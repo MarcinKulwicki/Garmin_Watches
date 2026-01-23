@@ -22,15 +22,15 @@ class NukePipView extends WatchUi.WatchFace {
     // ===========================================
     // USTAWIENIA WSKAŹNIKA BATERII
     // ===========================================
-    private const BATTERY_TICK_LENGTH = 15;      // Długość widocznej części kreski w px
+    private const BATTERY_TICK_LENGTH = 12;      // Długość widocznej części kreski w px
     private const BATTERY_TICK_WIDTH = 5;        // Grubość kreski w pikselach
-    private const BATTERY_TICK_OVERFLOW = 50;    // Ile px kreska wychodzi ZA krawędź
+    private const BATTERY_TICK_OVERFLOW = 20;    // Ile px kreska wychodzi ZA krawędź
     private const BATTERY_MAX_TICKS = 60;        // Maksymalna ilość kresek (jak minuty)
     
-    // Kolory baterii (gradient)
-    private const BATTERY_COLOR_FULL = 0x008000;    // Zielony - pełna bateria
-    private const BATTERY_COLOR_MID = 0xFFFF12;     // Żółty - średnia
-    private const BATTERY_COLOR_LOW = 0x6E0300;     // Ciemny czerwony - niska
+    // Domyślne kolory baterii (gradient)
+    private const BATTERY_COLOR_FULL_DEFAULT = 0x008000;    // Zielony - pełna bateria
+    private const BATTERY_COLOR_MID_DEFAULT = 0xFFFF12;     // Żółty - średnia
+    private const BATTERY_COLOR_LOW_DEFAULT = 0x6E0300;     // Ciemny czerwony - niska
 
     // ===========================================
     // DOMYŚLNE KOLORY (format 0xRRGGBB):
@@ -175,14 +175,33 @@ class NukePipView extends WatchUi.WatchFace {
 
     // Pobierz kolor dla danego poziomu baterii (0-100)
     function getBatteryColor(batteryPercent as Number) as Number {
+        // Sprawdź czy używamy custom kolorów
+        var useCustom = false;
+        try {
+            var val = Application.Properties.getValue("BatteryColorMode");
+            if (val != null && val instanceof Number && val == 2) {
+                useCustom = true;
+            }
+        } catch (e) {}
+        
+        var colorFull = BATTERY_COLOR_FULL_DEFAULT;
+        var colorMid = BATTERY_COLOR_MID_DEFAULT;
+        var colorLow = BATTERY_COLOR_LOW_DEFAULT;
+        
+        if (useCustom) {
+            colorFull = getColor("BatteryColorFull", BATTERY_COLOR_FULL_DEFAULT);
+            colorMid = getColor("BatteryColorMid", BATTERY_COLOR_MID_DEFAULT);
+            colorLow = getColor("BatteryColorLow", BATTERY_COLOR_LOW_DEFAULT);
+        }
+        
         if (batteryPercent >= 50) {
-            // Od 50% do 100%: zielony -> żółty
+            // Od 50% do 100%: pełna -> średnia
             var ratio = (100 - batteryPercent) / 50.0;
-            return interpolateColor(BATTERY_COLOR_FULL, BATTERY_COLOR_MID, ratio);
+            return interpolateColor(colorFull, colorMid, ratio);
         } else {
-            // Od 0% do 50%: żółty -> ciemny czerwony
+            // Od 0% do 50%: średnia -> niska
             var ratio = (50 - batteryPercent) / 50.0;
-            return interpolateColor(BATTERY_COLOR_MID, BATTERY_COLOR_LOW, ratio);
+            return interpolateColor(colorMid, colorLow, ratio);
         }
     }
 

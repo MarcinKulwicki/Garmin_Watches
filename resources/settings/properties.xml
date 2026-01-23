@@ -22,4 +22,12 @@
     <!-- Format 24h -->
     <property id="UseMilitaryFormat" type="boolean">false</property>
 
+    <!-- Tryb kolorów baterii: 1 = Default, 2 = Custom -->
+    <property id="BatteryColorMode" type="number">1</property>
+    
+    <!-- Custom kolory baterii -->
+    <property id="BatteryColorFull" type="number">0x008000</property>
+    <property id="BatteryColorMid" type="number">0xFFFF12</property>
+    <property id="BatteryColorLow" type="number">0x6E0300</property>
+
 </properties>
