@@ -200,11 +200,14 @@ module ColorHelper {
             BATTERY_COLOR_LOW_DEFAULT
         );
         
-        if (batteryPercent >= 50) {
-            var ratio = (100 - batteryPercent) / 50.0;
+        // Progi: 100% -> 30% -> 0%
+        if (batteryPercent >= 30) {
+            // Od 100% do 30%: interpolacja Full -> Mid
+            var ratio = (100 - batteryPercent) / 70.0;
             return interpolateColorLinear(colorFull, colorMid, ratio);
         } else {
-            var ratio = (50 - batteryPercent) / 50.0;
+            // Od 30% do 0%: interpolacja Mid -> Low
+            var ratio = (30 - batteryPercent) / 30.0;
             return interpolateColorLinear(colorMid, colorLow, ratio);
         }
     }

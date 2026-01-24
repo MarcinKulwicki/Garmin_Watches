@@ -123,12 +123,12 @@
     <string id="ColorCustom">Custom HEX...</string>
 
     <!-- Kolory baterii -->
-    <string id="BatteryColorFullTitle">▶ Battery Full 100%</string>
-    <string id="BatteryColorFullCustomTitle">↳ Full Custom HEX</string>
-    <string id="BatteryColorMidTitle">▶ Battery Mid 50%</string>
-    <string id="BatteryColorMidCustomTitle">↳ Mid Custom HEX</string>
-    <string id="BatteryColorLowTitle">▶ Battery Low 0%</string>
-    <string id="BatteryColorLowCustomTitle">↳ Low Custom HEX</string>
+    <string id="BatteryColorFullTitle">▶ Battery 100%</string>
+    <string id="BatteryColorFullCustomTitle">↳ 100% Custom HEX</string>
+    <string id="BatteryColorMidTitle">▶ Battery 30%</string>
+    <string id="BatteryColorMidCustomTitle">↳ 30% Custom HEX</string>
+    <string id="BatteryColorLowTitle">▶ Battery 0%</string>
+    <string id="BatteryColorLowCustomTitle">↳ 0% Custom HEX</string>
     
     <!-- Instrukcja HEX -->
     <string id="ColorHelpTitle">HEX Color Examples</string>
