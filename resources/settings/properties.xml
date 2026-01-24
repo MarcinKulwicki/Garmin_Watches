@@ -26,7 +26,7 @@
     <property id="MiddleFieldColorCustom" type="string">FFFFFF</property>
     <property id="LowerFieldColor" type="number">12</property>
     <property id="LowerFieldColorCustom" type="string">00AAFF</property>
-    <property id="LeftFieldColor" type="number">4</property>
+    <property id="LeftFieldColor" type="number">3</property>
     <property id="LeftFieldColorCustom" type="string">FF0000</property>
     <property id="RightFieldColor" type="number">8</property>
     <property id="RightFieldColorCustom" type="string">FFFF00</property>
