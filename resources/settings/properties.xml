@@ -1,7 +1,29 @@
 <properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
 
-    <!-- Wybór tła (1-13) -->
-    <property id="BackgroundChoice" type="number">1</property>
+    <!-- ============================================ -->
+    <!-- TŁO - GRADIENT                              -->
+    <!-- ============================================ -->
+    <!-- Typ tła: 1-13 = obrazki, 14 = solid color, 15 = gradient -->
+    <property id="BackgroundType" type="number">1</property>
+
+    <!-- Solid color -->
+    <property id="BackgroundSolidColor" type="number">2</property>
+    <property id="BackgroundSolidColorCustom" type="string">000000</property>
+
+    <!-- Gradient - kolory -->
+    <property id="GradientColor1" type="number">4</property>
+    <property id="GradientColor1Custom" type="string">8B0000</property>
+    <property id="GradientColor2" type="number">2</property>
+    <property id="GradientColor2Custom" type="string">000000</property>
+
+    <property id="GradientSmoothness" type="number">2</property>
+
+    <!-- Typ gradientu: 1=linear vertical, 2=linear horizontal, 3=diagonal, 
+        4=radial center, 5=radial corner, 6=diamond, 7=sweep -->
+    <property id="GradientType" type="number">1</property>
+
+    <!-- Kierunek gradientu (dla linear): 1=top-bottom, 2=bottom-top, 3=left-right, 4=right-left -->
+    <property id="GradientDirection" type="number">1</property>
     
     <!-- Wybór fontu (1-5) -->
     <property id="FontChoice" type="number">1</property>

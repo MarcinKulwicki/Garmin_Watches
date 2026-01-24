@@ -2,8 +2,59 @@
 
     <string id="AppName">Nuke Pip</string>
 
+    <!-- Typy tła -->
+    <string id="BackgroundTypeTitle">Background Type</string>
+    <string id="BackgroundImage1">Image 1</string>
+    <string id="BackgroundImage2">Image 2</string>
+    <string id="BackgroundImage3">Image 3</string>
+    <string id="BackgroundImage4">Image 4</string>
+    <string id="BackgroundImage5">Image 5</string>
+    <string id="BackgroundImage6">Image 6</string>
+    <string id="BackgroundImage7">Image 7</string>
+    <string id="BackgroundImage8">Image 8</string>
+    <string id="BackgroundImage9">Image 9</string>
+    <string id="BackgroundImage10">Image 10</string>
+    <string id="BackgroundImage11">Image 11</string>
+    <string id="BackgroundImage12">Image 12</string>
+    <string id="BackgroundImage13">Image 13</string>
+    <string id="BackgroundSolid">Solid Color</string>
+    <string id="BackgroundGradient">Gradient</string>
+
+    <!-- Solid color -->
+    <string id="BackgroundSolidColorTitle">▶ Solid Background Color</string>
+    <string id="BackgroundSolidColorCustomTitle">↳ Solid Custom HEX</string>
+
+    <!-- Gradient -->
+    <string id="GradientTypeTitle">▶ Gradient Type</string>
+    <string id="GradientDirectionTitle">▶ Gradient Direction</string>
+    <string id="GradientColor1Title">▶ Gradient Color 1</string>
+    <string id="GradientColor1CustomTitle">↳ Gradient 1 Custom HEX</string>
+    <string id="GradientColor2Title">▶ Gradient Color 2</string>
+    <string id="GradientColor2CustomTitle">↳ Gradient 2 Custom HEX</string>
+
+    <!-- Płynność gradientu -->
+    <string id="GradientSmoothnessTitle">▶ Gradient Quality</string>
+    <string id="SmoothnessLow">Low (fast)</string>
+    <string id="SmoothnessMedium">Medium</string>
+    <string id="SmoothnessHigh">High</string>
+    <string id="SmoothnessUltra">Ultra</string>
+
+    <!-- Typy gradientów -->
+    <string id="GradientLinearV">Linear Vertical</string>
+    <string id="GradientLinearH">Linear Horizontal</string>
+    <string id="GradientDiagonal">Diagonal</string>
+    <string id="GradientRadialCenter">Radial (Center)</string>
+    <string id="GradientRadialCorner">Radial (Corner)</string>
+    <string id="GradientDiamond">Diamond</string>
+    <string id="GradientSweep">Sweep/Conic</string>
+
+    <!-- Kierunki -->
+    <string id="DirTopBottom">Top → Bottom</string>
+    <string id="DirBottomTop">Bottom → Top</string>
+    <string id="DirLeftRight">Left → Right</string>
+    <string id="DirRightLeft">Right → Left</string>
+
     <!-- Tytuły ustawień podstawowych -->
-    <string id="BackgroundChoiceTitle">Background</string>
     <string id="FontChoiceTitle">Font</string>
     <string id="MilitaryFormatTitle">24 Hour Format</string>
 

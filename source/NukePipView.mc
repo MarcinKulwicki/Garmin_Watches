@@ -1,22 +1,23 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
 import Toybox.Application;
+import Toybox.Lang;
 
 class NukePipView extends WatchUi.WatchFace {
-    private var backgroundBitmap;
     private var fontRegular;
     private var fontSmall;
     private var font40;
-    private var currentBackground = 1;
     private var currentFont = 1;
+    private var isLowPowerMode = false;
 
     function initialize() {
         WatchFace.initialize();
     }
 
     function onLayout(dc as Dc) as Void {
-        loadBackground();
         loadFonts();
+        // Inicjalizuj bufor gradientu z wymiarami ekranu
+        BackgroundManager.initBuffer(dc.getWidth(), dc.getHeight());
     }
 
     function loadFonts() as Void {
@@ -51,41 +52,21 @@ class NukePipView extends WatchUi.WatchFace {
         }
     }
 
-    function loadBackground() as Void {
-        var choice = SettingsHelper.getNumberProperty("BackgroundChoice", 1);
-        currentBackground = choice;
-        
-        var backgrounds = [
-            Rez.Drawables.Background1, Rez.Drawables.Background2, 
-            Rez.Drawables.Background3, Rez.Drawables.Background4,
-            Rez.Drawables.Background5, Rez.Drawables.Background6,
-            Rez.Drawables.Background7, Rez.Drawables.Background8,
-            Rez.Drawables.Background9, Rez.Drawables.Background10,
-            Rez.Drawables.Background11, Rez.Drawables.Background12,
-            Rez.Drawables.Background13
-        ];
-        
-        var index = (choice >= 1 && choice <= 13) ? choice - 1 : 0;
-        backgroundBitmap = Application.loadResource(backgrounds[index]);
-    }
-
     function onUpdate(dc as Dc) as Void {
-        // Sprawdź czy zmieniono ustawienia
-        var bgChoice = SettingsHelper.getNumberProperty("BackgroundChoice", 1);
-        if (bgChoice != currentBackground) { loadBackground(); }
-        
+        // Sprawdź czy zmieniono font
         var fontChoice = SettingsHelper.getNumberProperty("FontChoice", 1);
-        if (fontChoice != currentFont) { loadFonts(); }
-
-        // Rysuj tło
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-        dc.clear();
-
-        if (backgroundBitmap != null) {
-            var x = (dc.getWidth() - backgroundBitmap.getWidth()) / 2;
-            var y = (dc.getHeight() - backgroundBitmap.getHeight()) / 2;
-            dc.drawBitmap(x, y, backgroundBitmap);
+        if (fontChoice != currentFont) { 
+            loadFonts(); 
         }
+
+        // Tryb niskiego zużycia energii
+        if (isLowPowerMode) {
+            drawLowPowerMode(dc);
+            return;
+        }
+
+        // Rysuj tło (obrazek, solid color lub gradient)
+        BackgroundManager.drawBackground(dc);
         
         // Rysuj wskaźnik sekund
         SecondsIndicator.draw(dc);
@@ -104,8 +85,34 @@ class NukePipView extends WatchUi.WatchFace {
         FieldRenderer.drawSideField(dc, "Right", dc.getHeight() * 6 / 10, false, fontSmall);
     }
 
-    function onShow() as Void {}
-    function onHide() as Void {}
-    function onExitSleep() as Void {}
-    function onEnterSleep() as Void {}
+    function drawLowPowerMode(dc as Dc) as Void {
+        // Czarne tło - minimum energii
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.clear();
+        
+        // Tylko czas - bez sekund, bez gradientu
+        var centerX = dc.getWidth() / 2;
+        var centerY = dc.getHeight() / 2;
+        var timeString = DataHelper.getTimeString();
+        
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(centerX, centerY, fontRegular, timeString, 
+                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    function onShow() as Void {
+    }
+
+    function onHide() as Void {
+    }
+
+    function onExitSleep() as Void {
+        isLowPowerMode = false;
+        WatchUi.requestUpdate();
+    }
+
+    function onEnterSleep() as Void {
+        isLowPowerMode = true;
+        WatchUi.requestUpdate();
+    }
 }
