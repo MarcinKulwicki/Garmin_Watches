@@ -59,7 +59,7 @@
             <listEntry value="1">@Strings.SmoothnessLow</listEntry>
             <listEntry value="2">@Strings.SmoothnessMedium</listEntry>
             <listEntry value="3">@Strings.SmoothnessHigh</listEntry>
-            <listEntry value="4">@Strings.SmoothnessUltra</listEntry>
+            <!-- <listEntry value="4">@Strings.SmoothnessUltra</listEntry> -->
         </settingConfig>
     </setting>
 
