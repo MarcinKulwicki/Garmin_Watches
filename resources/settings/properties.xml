@@ -1,47 +1,18 @@
 <properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
 
-    <!-- ============================================ -->
-    <!-- TŁO - GRADIENT                              -->
-    <!-- ============================================ -->
-    <!-- Typ tła: 1-13 = obrazki, 14 = solid color, 15 = gradient -->
     <property id="BackgroundType" type="number">1</property>
 
-    <!-- Solid color -->
     <property id="BackgroundSolidColor" type="number">2</property>
     <property id="BackgroundSolidColorCustom" type="string">000000</property>
-
-    <!-- Gradient - kolory -->
-    <property id="GradientColor1" type="number">4</property>
-    <property id="GradientColor1Custom" type="string">8B0000</property>
-    <property id="GradientColor2" type="number">2</property>
-    <property id="GradientColor2Custom" type="string">000000</property>
-
-    <property id="GradientSmoothness" type="number">2</property>
-
-    <!-- Typ gradientu: 1=linear vertical, 2=linear horizontal, 3=diagonal, 
-        4=radial center, 5=radial corner, 6=diamond, 7=sweep -->
-    <property id="GradientType" type="number">1</property>
-
-    <!-- Kierunek gradientu (dla linear): 1=top-bottom, 2=bottom-top, 3=left-right, 4=right-left -->
-    <property id="GradientDirection" type="number">1</property>
     
-    <!-- Wybór fontu (1-5) -->
     <property id="FontChoice" type="number">1</property>
 
-    <!-- ============================================ -->
-    <!-- POLA DANYCH - co wyświetlać gdzie           -->
-    <!-- 0=None, 1=Time, 2=Date, 3=HeartRate,        -->
-    <!-- 4=Temperature, 5=Steps, 6=Battery,          -->
-    <!-- 7=Calories, 8=Floors, 9=Altitude,           -->
-    <!-- 10=Notifications, 11=Seconds                -->
-    <!-- ============================================ -->
     <property id="UpperFieldData" type="number">2</property>
     <property id="MiddleFieldData" type="number">1</property>
     <property id="LowerFieldData" type="number">5</property>
     <property id="LeftFieldData" type="number">3</property>
     <property id="RightFieldData" type="number">4</property>
 
-    <!-- Kolory pól (1-20 predefiniowane, 21 = custom) -->
     <property id="UpperFieldColor" type="number">1</property>
     <property id="UpperFieldColorCustom" type="string">FFFFFF</property>
     <property id="MiddleFieldColor" type="number">1</property>
@@ -53,7 +24,6 @@
     <property id="RightFieldColor" type="number">8</property>
     <property id="RightFieldColorCustom" type="string">FFFF00</property>
     
-    <!-- Kolory baterii (1-20 predefiniowane, 21 = custom) -->
     <property id="BatteryColorFull" type="number">5</property>
     <property id="BatteryColorFullCustom" type="string">00FF00</property>
     <property id="BatteryColorMid" type="number">8</property>
@@ -61,16 +31,9 @@
     <property id="BatteryColorLow" type="number">4</property>
     <property id="BatteryColorLowCustom" type="string">8B0000</property>
     
-    <!-- Jednostka temperatury: 1 = Celsius, 2 = Fahrenheit -->
     <property id="TemperatureUnit" type="number">1</property>
-    
-    <!-- Źródło temperatury: 1 = Weather, 2 = Sensor -->
     <property id="TemperatureSource" type="number">1</property>
-    
-    <!-- Jednostka wysokości: 1 = m, 2 = ft -->
     <property id="AltitudeUnit" type="number">1</property>
-    
-    <!-- Format 24h -->
     <property id="UseMilitaryFormat" type="boolean">false</property>
 
 </properties>

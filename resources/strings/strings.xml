@@ -2,7 +2,6 @@
 
     <string id="AppName">Nuke Pip</string>
 
-    <!-- Typy tła -->
     <string id="BackgroundTypeTitle">Background Type</string>
     <string id="BackgroundImage1">Image 1</string>
     <string id="BackgroundImage2">Image 2</string>
@@ -18,49 +17,13 @@
     <string id="BackgroundImage12">Image 12</string>
     <string id="BackgroundImage13">Image 13</string>
     <string id="BackgroundSolid">Solid Color</string>
-    <string id="BackgroundGradient">Gradient</string>
 
-    <!-- Solid color -->
     <string id="BackgroundSolidColorTitle">▶ Solid Background Color</string>
     <string id="BackgroundSolidColorCustomTitle">↳ Solid Custom HEX</string>
 
-    <!-- Gradient -->
-    <string id="GradientTypeTitle">▶ Gradient Type</string>
-    <string id="GradientDirectionTitle">▶ Gradient Direction</string>
-    <string id="GradientColor1Title">▶ Gradient Color 1</string>
-    <string id="GradientColor1CustomTitle">↳ Gradient 1 Custom HEX</string>
-    <string id="GradientColor2Title">▶ Gradient Color 2</string>
-    <string id="GradientColor2CustomTitle">↳ Gradient 2 Custom HEX</string>
-
-    <!-- Płynność gradientu -->
-    <string id="GradientSmoothnessTitle">▶ Gradient Quality</string>
-    <string id="SmoothnessLow">Low (fast)</string>
-    <string id="SmoothnessMedium">Medium</string>
-    <string id="SmoothnessHigh">High</string>
-    <string id="SmoothnessUltra">Ultra</string>
-
-    <!-- Typy gradientów -->
-    <string id="GradientLinearV">Linear Vertical</string>
-    <string id="GradientLinearH">Linear Horizontal</string>
-    <string id="GradientDiagonal">Diagonal</string>
-    <string id="GradientRadialCenter">Radial (Center)</string>
-    <string id="GradientRadialCorner">Radial (Corner)</string>
-    <string id="GradientDiamond">Diamond</string>
-    <string id="GradientSweep">Sweep/Conic</string>
-
-    <!-- Kierunki -->
-    <string id="DirTopBottom">Top → Bottom</string>
-    <string id="DirBottomTop">Bottom → Top</string>
-    <string id="DirLeftRight">Left → Right</string>
-    <string id="DirRightLeft">Right → Left</string>
-
-    <!-- Tytuły ustawień podstawowych -->
     <string id="FontChoiceTitle">Font</string>
     <string id="MilitaryFormatTitle">24 Hour Format</string>
 
-    <!-- ============================================ -->
-    <!-- TYPY DANYCH                                 -->
-    <!-- ============================================ -->
     <string id="DataNone">None</string>
     <string id="DataTime">Time</string>
     <string id="DataDate">Date</string>
@@ -74,9 +37,6 @@
     <string id="DataNotifications">Notifications</string>
     <string id="DataSeconds">Seconds</string>
 
-    <!-- ============================================ -->
-    <!-- KONFIGURACJA PÓL                            -->
-    <!-- ============================================ -->
     <string id="UpperFieldDataTitle">▶ Upper Field Data</string>
     <string id="UpperFieldColorTitle">↳ Upper Color</string>
     <string id="UpperFieldColorCustomTitle">↳ Upper Custom HEX</string>
@@ -97,9 +57,6 @@
     <string id="RightFieldColorTitle">↳ Right Color</string>
     <string id="RightFieldColorCustomTitle">↳ Right Custom HEX</string>
 
-    <!-- ============================================ -->
-    <!-- PREDEFINIOWANE KOLORY                       -->
-    <!-- ============================================ -->
     <string id="ColorWhite">White [FFFFFF]</string>
     <string id="ColorBlack">Black [000000]</string>
     <string id="ColorRed">Red [FF0000]</string>
@@ -122,51 +79,27 @@
     <string id="ColorGray">Gray [808080]</string>
     <string id="ColorCustom">Custom HEX...</string>
 
-    <!-- Kolory baterii -->
     <string id="BatteryColorFullTitle">▶ Battery 100%</string>
     <string id="BatteryColorFullCustomTitle">↳ 100% Custom HEX</string>
     <string id="BatteryColorMidTitle">▶ Battery 30%</string>
     <string id="BatteryColorMidCustomTitle">↳ 30% Custom HEX</string>
     <string id="BatteryColorLowTitle">▶ Battery 0%</string>
     <string id="BatteryColorLowCustomTitle">↳ 0% Custom HEX</string>
-    
-    <!-- Instrukcja HEX -->
-    <string id="ColorHelpTitle">HEX Color Examples</string>
-    <string id="ColorHelpText">Purple 8B00FF, Pink FF69B4, Orange FF8C00, Beige F5DEB3, Coral FF6B6B, Teal 20B2AA, Gold FFD700, Lime 32CD32, Cyan 00FFFF, Navy 000080</string>
 
-    <!-- Nazwy teł -->
-    <string id="Background1">Background 1</string>
-    <string id="Background2">Background 2</string>
-    <string id="Background3">Background 3</string>
-    <string id="Background4">Background 4</string>
-    <string id="Background5">Background 5</string>
-    <string id="Background6">Background 6</string>
-    <string id="Background7">Background 7</string>
-    <string id="Background8">Background 8</string>
-    <string id="Background9">Background 9</string>
-    <string id="Background10">Background 10</string>
-    <string id="Background11">Background 11</string>
-    <string id="Background12">Background 12</string>
-    <string id="Background13">Background 13</string>
-
-    <!-- Nazwy fontów -->
     <string id="FontH">Font H</string>
     <string id="FontG">Font G</string>
     <string id="FontS">Font S</string>
     <string id="FontT">Font T</string>
     <string id="FontO">Font O</string>
 
-    <!-- Jednostki temperatury -->
     <string id="TemperatureUnitTitle">Temperature Unit</string>
     <string id="Celsius">Celsius (°C)</string>
     <string id="Fahrenheit">Fahrenheit (°F)</string>
 
-    <!-- Źródło temperatury -->
     <string id="TemperatureSourceTitle">Temperature Source</string>
     <string id="TempWeather">Weather</string>
     <string id="TempSensor">Sensor</string>
     
-    <!-- Jednostki wysokości -->
     <string id="AltitudeUnitTitle">Altitude Unit</string>
     <string id="AltitudeMeters">Meters (m)</string>
     <string id="AltitudeFeet">Feet (ft)</string>

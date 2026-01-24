@@ -16,8 +16,6 @@ class NukePipView extends WatchUi.WatchFace {
 
     function onLayout(dc as Dc) as Void {
         loadFonts();
-        // Inicjalizuj bufor gradientu z wymiarami ekranu
-        BackgroundManager.initBuffer(dc.getWidth(), dc.getHeight());
     }
 
     function loadFonts() as Void {
@@ -53,25 +51,19 @@ class NukePipView extends WatchUi.WatchFace {
     }
 
     function onUpdate(dc as Dc) as Void {
-        // Sprawdź czy zmieniono font
         var fontChoice = SettingsHelper.getNumberProperty("FontChoice", 1);
         if (fontChoice != currentFont) { 
             loadFonts(); 
         }
 
-        // Tryb niskiego zużycia energii
         if (isLowPowerMode) {
             drawLowPowerMode(dc);
             return;
         }
 
-        // Rysuj tło (obrazek, solid color lub gradient)
         BackgroundManager.drawBackground(dc);
-        
-        // Rysuj wskaźnik sekund
         SecondsIndicator.draw(dc);
         
-        // Rysuj pola danych
         var centerX = dc.getWidth() / 2;
         
         FieldRenderer.drawField(dc, "Upper", centerX, dc.getHeight() / 7, 
@@ -86,11 +78,9 @@ class NukePipView extends WatchUi.WatchFace {
     }
 
     function drawLowPowerMode(dc as Dc) as Void {
-        // Czarne tło - minimum energii
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         
-        // Tylko czas - bez sekund, bez gradientu
         var centerX = dc.getWidth() / 2;
         var centerY = dc.getHeight() / 2;
         var timeString = DataHelper.getTimeString();

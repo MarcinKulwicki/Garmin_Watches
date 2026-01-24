@@ -1,8 +1,5 @@
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
 
-    <!-- ============================================ -->
-    <!-- TŁO                                         -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.BackgroundType" title="@Strings.BackgroundTypeTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.BackgroundImage1</listEntry>
@@ -19,11 +16,9 @@
             <listEntry value="12">@Strings.BackgroundImage12</listEntry>
             <listEntry value="13">@Strings.BackgroundImage13</listEntry>
             <listEntry value="14">@Strings.BackgroundSolid</listEntry>
-            <listEntry value="15">@Strings.BackgroundGradient</listEntry>
         </settingConfig>
     </setting>
 
-    <!-- Solid Color -->
     <setting propertyKey="@Properties.BackgroundSolidColor" title="@Strings.BackgroundSolidColorTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>
@@ -54,101 +49,6 @@
         <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <setting propertyKey="@Properties.GradientSmoothness" title="@Strings.GradientSmoothnessTitle">
-        <settingConfig type="list">
-            <listEntry value="1">@Strings.SmoothnessLow</listEntry>
-            <listEntry value="2">@Strings.SmoothnessMedium</listEntry>
-            <listEntry value="3">@Strings.SmoothnessHigh</listEntry>
-            <!-- <listEntry value="4">@Strings.SmoothnessUltra</listEntry> -->
-        </settingConfig>
-    </setting>
-
-    <!-- Gradient Type -->
-    <setting propertyKey="@Properties.GradientType" title="@Strings.GradientTypeTitle">
-        <settingConfig type="list">
-            <listEntry value="1">@Strings.GradientLinearV</listEntry>
-            <listEntry value="2">@Strings.GradientLinearH</listEntry>
-            <listEntry value="3">@Strings.GradientDiagonal</listEntry>
-            <listEntry value="4">@Strings.GradientRadialCenter</listEntry>
-            <listEntry value="5">@Strings.GradientRadialCorner</listEntry>
-            <listEntry value="6">@Strings.GradientDiamond</listEntry>
-            <listEntry value="7">@Strings.GradientSweep</listEntry>
-        </settingConfig>
-    </setting>
-
-    <!-- Gradient Direction -->
-    <setting propertyKey="@Properties.GradientDirection" title="@Strings.GradientDirectionTitle">
-        <settingConfig type="list">
-            <listEntry value="1">@Strings.DirTopBottom</listEntry>
-            <listEntry value="2">@Strings.DirBottomTop</listEntry>
-            <listEntry value="3">@Strings.DirLeftRight</listEntry>
-            <listEntry value="4">@Strings.DirRightLeft</listEntry>
-        </settingConfig>
-    </setting>
-
-    <!-- Gradient Color 1 -->
-    <setting propertyKey="@Properties.GradientColor1" title="@Strings.GradientColor1Title">
-        <settingConfig type="list">
-            <listEntry value="1">@Strings.ColorWhite</listEntry>
-            <listEntry value="2">@Strings.ColorBlack</listEntry>
-            <listEntry value="3">@Strings.ColorRed</listEntry>
-            <listEntry value="4">@Strings.ColorDarkRed</listEntry>
-            <listEntry value="5">@Strings.ColorGreen</listEntry>
-            <listEntry value="6">@Strings.ColorDarkGreen</listEntry>
-            <listEntry value="7">@Strings.ColorBlue</listEntry>
-            <listEntry value="8">@Strings.ColorYellow</listEntry>
-            <listEntry value="9">@Strings.ColorOrange</listEntry>
-            <listEntry value="10">@Strings.ColorPurple</listEntry>
-            <listEntry value="11">@Strings.ColorPink</listEntry>
-            <listEntry value="12">@Strings.ColorCyan</listEntry>
-            <listEntry value="13">@Strings.ColorTeal</listEntry>
-            <listEntry value="14">@Strings.ColorGold</listEntry>
-            <listEntry value="15">@Strings.ColorSilver</listEntry>
-            <listEntry value="16">@Strings.ColorLime</listEntry>
-            <listEntry value="17">@Strings.ColorCoral</listEntry>
-            <listEntry value="18">@Strings.ColorNavy</listEntry>
-            <listEntry value="19">@Strings.ColorBeige</listEntry>
-            <listEntry value="20">@Strings.ColorGray</listEntry>
-            <listEntry value="21">@Strings.ColorCustom</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.GradientColor1Custom" title="@Strings.GradientColor1CustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
-    </setting>
-
-    <!-- Gradient Color 2 -->
-    <setting propertyKey="@Properties.GradientColor2" title="@Strings.GradientColor2Title">
-        <settingConfig type="list">
-            <listEntry value="1">@Strings.ColorWhite</listEntry>
-            <listEntry value="2">@Strings.ColorBlack</listEntry>
-            <listEntry value="3">@Strings.ColorRed</listEntry>
-            <listEntry value="4">@Strings.ColorDarkRed</listEntry>
-            <listEntry value="5">@Strings.ColorGreen</listEntry>
-            <listEntry value="6">@Strings.ColorDarkGreen</listEntry>
-            <listEntry value="7">@Strings.ColorBlue</listEntry>
-            <listEntry value="8">@Strings.ColorYellow</listEntry>
-            <listEntry value="9">@Strings.ColorOrange</listEntry>
-            <listEntry value="10">@Strings.ColorPurple</listEntry>
-            <listEntry value="11">@Strings.ColorPink</listEntry>
-            <listEntry value="12">@Strings.ColorCyan</listEntry>
-            <listEntry value="13">@Strings.ColorTeal</listEntry>
-            <listEntry value="14">@Strings.ColorGold</listEntry>
-            <listEntry value="15">@Strings.ColorSilver</listEntry>
-            <listEntry value="16">@Strings.ColorLime</listEntry>
-            <listEntry value="17">@Strings.ColorCoral</listEntry>
-            <listEntry value="18">@Strings.ColorNavy</listEntry>
-            <listEntry value="19">@Strings.ColorBeige</listEntry>
-            <listEntry value="20">@Strings.ColorGray</listEntry>
-            <listEntry value="21">@Strings.ColorCustom</listEntry>
-        </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.GradientColor2Custom" title="@Strings.GradientColor2CustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
-    </setting>
-
-    <!-- Wybór fontu -->
     <setting propertyKey="@Properties.FontChoice" title="@Strings.FontChoiceTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.FontH</listEntry>
@@ -159,9 +59,6 @@
         </settingConfig>
     </setting>
 
-    <!-- ============================================ -->
-    <!-- GÓRNE POLE                                  -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.UpperFieldData" title="@Strings.UpperFieldDataTitle">
         <settingConfig type="list">
             <listEntry value="0">@Strings.DataNone</listEntry>
@@ -209,9 +106,6 @@
         <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- ============================================ -->
-    <!-- ŚRODKOWE POLE                               -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.MiddleFieldData" title="@Strings.MiddleFieldDataTitle">
         <settingConfig type="list">
             <listEntry value="0">@Strings.DataNone</listEntry>
@@ -259,9 +153,6 @@
         <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- ============================================ -->
-    <!-- DOLNE POLE                                  -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.LowerFieldData" title="@Strings.LowerFieldDataTitle">
         <settingConfig type="list">
             <listEntry value="0">@Strings.DataNone</listEntry>
@@ -309,9 +200,6 @@
         <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- ============================================ -->
-    <!-- LEWE POLE                                   -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.LeftFieldData" title="@Strings.LeftFieldDataTitle">
         <settingConfig type="list">
             <listEntry value="0">@Strings.DataNone</listEntry>
@@ -359,9 +247,6 @@
         <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- ============================================ -->
-    <!-- PRAWE POLE                                  -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.RightFieldData" title="@Strings.RightFieldDataTitle">
         <settingConfig type="list">
             <listEntry value="0">@Strings.DataNone</listEntry>
@@ -409,9 +294,6 @@
         <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- ============================================ -->
-    <!-- KOLORY BATERII                              -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.BatteryColorFull" title="@Strings.BatteryColorFullTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>
@@ -502,9 +384,6 @@
         <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
-    <!-- ============================================ -->
-    <!-- JEDNOSTKI I FORMAT                          -->
-    <!-- ============================================ -->
     <setting propertyKey="@Properties.TemperatureUnit" title="@Strings.TemperatureUnitTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.Celsius</listEntry>
