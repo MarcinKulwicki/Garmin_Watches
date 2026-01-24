@@ -9,35 +9,132 @@ module ColorHelper {
     const BATTERY_COLOR_LOW_DEFAULT = 0x6E0300;
 
     var PRESET_COLORS = [
-        0xFFFFFF,
-        0x000000,
-        0xFF0000,
-        0x8B0000,
-        0x00FF00,
-        0x006400,
-        0x0000FF,
-        0xFFFF00,
-        0xFF8C00,
-        0x8B00FF,
-        0xFF69B4,
-        0x00FFFF,
-        0x20B2AA,
-        0xFFD700,
-        0xC0C0C0,
-        0x32CD32,
-        0xFF6B6B,
-        0x000080,
-        0xF5DEB3,
-        0x808080
+        // === BASICS (1-10) ===
+        0xFFFFFF,  // 1.  White
+        0x000000,  // 2.  Black
+        0x808080,  // 3.  Gray
+        0xA9A9A9,  // 4.  Dark Gray
+        0xD3D3D3,  // 5.  Light Gray
+        0xC0C0C0,  // 6.  Silver
+        0x36454F,  // 7.  Charcoal
+        0x2F4F4F,  // 8.  Dark Slate Gray
+        0x708090,  // 9.  Slate Gray
+        0xB0C4DE,  // 10. Light Steel Blue
+        
+        // === REDS (11-20) ===
+        0xFF0000,  // 11. Red
+        0x380000,  // 12. Dark Red
+        0xDC143C,  // 13. Crimson
+        0xB22222,  // 14. Firebrick
+        0xCD5C5C,  // 15. Indian Red
+        0xF08080,  // 16. Light Coral
+        0xFA8072,  // 17. Salmon
+        0xE9967A,  // 18. Dark Salmon
+        0xFFA07A,  // 19. Light Salmon
+        0xFF6347,  // 20. Tomato
+        
+        // === ORANGES (21-28) ===
+        0xFF8C00,  // 21. Dark Orange
+        0xFF7F50,  // 22. Coral
+        0xFF6B6B,  // 23. Light Coral Red
+        0xFF4500,  // 24. Orange Red
+        0xFFA500,  // 25. Orange
+        0xFFB347,  // 26. Pastel Orange
+        0xE65C00,  // 27. Burnt Orange
+        0xCC5500,  // 28. Burnt Sienna
+        
+        // === YELLOWS (29-38) ===
+        0xFFFF00,  // 29. Yellow
+        0xFFD700,  // 30. Gold
+        0xFFC125,  // 31. Goldenrod
+        0xDAA520,  // 32. Dark Goldenrod
+        0xF0E68C,  // 33. Khaki
+        0xBDB76B,  // 34. Dark Khaki
+        0xFFE135,  // 35. Banana Yellow
+        0xFFEF00,  // 36. Canary Yellow
+        0xFAFAD2,  // 37. Light Goldenrod
+        0xEEE8AA,  // 38. Pale Goldenrod
+        
+        // === GREENS (39-55) ===
+        0x00FF00,  // 39. Lime
+        0x008000,  // 40. Green
+        0x006400,  // 41. Dark Green
+        0x228B22,  // 42. Forest Green
+        0x32CD32,  // 43. Lime Green
+        0x90EE90,  // 44. Light Green
+        0x98FB98,  // 45. Pale Green
+        0x00FA9A,  // 46. Medium Spring Green
+        0x00FF7F,  // 47. Spring Green
+        0x7CFC00,  // 48. Lawn Green
+        0xADFF2F,  // 49. Green Yellow
+        0x9ACD32,  // 50. Yellow Green
+        0x6B8E23,  // 51. Olive Drab
+        0x556B2F,  // 52. Dark Olive Green
+        0x808000,  // 53. Olive
+        0x2E8B57,  // 54. Sea Green
+        0x3CB371,  // 55. Medium Sea Green
+        
+        // === CYANS & TEALS (56-65) ===
+        0x00FFFF,  // 56. Cyan / Aqua
+        0x00CED1,  // 57. Dark Turquoise
+        0x40E0D0,  // 58. Turquoise
+        0x48D1CC,  // 59. Medium Turquoise
+        0x20B2AA,  // 60. Light Sea Green
+        0x008B8B,  // 61. Dark Cyan
+        0x008080,  // 62. Teal
+        0x5F9EA0,  // 63. Cadet Blue
+        0x66CDAA,  // 64. Medium Aquamarine
+        0x7FFFD4,  // 65. Aquamarine
+        
+        // === BLUES (66-80) ===
+        0x0000FF,  // 66. Blue
+        0x000080,  // 67. Navy
+        0x00008B,  // 68. Dark Blue
+        0x0000CD,  // 69. Medium Blue
+        0x1E90FF,  // 70. Dodger Blue
+        0x4169E1,  // 71. Royal Blue
+        0x4682B4,  // 72. Steel Blue
+        0x6495ED,  // 73. Cornflower Blue
+        0x00BFFF,  // 74. Deep Sky Blue
+        0x87CEEB,  // 75. Sky Blue
+        0x87CEFA,  // 76. Light Sky Blue
+        0xADD8E6,  // 77. Light Blue
+        0xB0E0E6,  // 78. Powder Blue
+        0x191970,  // 79. Midnight Blue
+        0x483D8B,  // 80. Dark Slate Blue
+        
+        // === PURPLES & VIOLETS (81-92) ===
+        0x8B00FF,  // 81. Violet
+        0x800080,  // 82. Purple
+        0x9400D3,  // 83. Dark Violet
+        0x9932CC,  // 84. Dark Orchid
+        0xBA55D3,  // 85. Medium Orchid
+        0xDA70D6,  // 86. Orchid
+        0xEE82EE,  // 87. Light Violet
+        0xDDA0DD,  // 88. Plum
+        0x8A2BE2,  // 89. Blue Violet
+        0x6A5ACD,  // 90. Slate Blue
+        0x7B68EE,  // 91. Medium Slate Blue
+        0x9370DB,  // 92. Medium Purple
+        
+        // === PINKS & MAGENTAS (93-100) ===
+        0xFF00FF,  // 93. Magenta / Fuchsia
+        0xFF1493,  // 94. Deep Pink
+        0xFF69B4,  // 95. Hot Pink
+        0xFFB6C1,  // 96. Light Pink
+        0xFFC0CB,  // 97. Pink
+        0xDB7093,  // 98. Pale Violet Red
+        0xC71585,  // 99. Medium Violet Red
+        0x8B008B   // 100. Dark Magenta
     ];
 
     function getColorFromProperty(propertyId as String, customPropertyId as String, defaultColor as Number) as Number {
         var colorChoice = SettingsHelper.getNumberProperty(propertyId, 1);
         
-        if (colorChoice == 21) {
+        if (colorChoice == 101) {
             var hexVal = SettingsHelper.getStringProperty(customPropertyId, "");
             return parseHexColor(hexVal, defaultColor);
-        } else if (colorChoice >= 1 && colorChoice <= 20) {
+        } else if (colorChoice >= 1 && colorChoice <= 100) {
             return PRESET_COLORS[colorChoice - 1];
         }
         return defaultColor;

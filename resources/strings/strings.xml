@@ -57,27 +57,126 @@
     <string id="RightFieldColorTitle">↳ Right Color</string>
     <string id="RightFieldColorCustomTitle">↳ Right Custom HEX</string>
 
-    <string id="ColorWhite">White [FFFFFF]</string>
-    <string id="ColorBlack">Black [000000]</string>
-    <string id="ColorRed">Red [FF0000]</string>
-    <string id="ColorDarkRed">Dark Red [8B0000]</string>
-    <string id="ColorGreen">Green [00FF00]</string>
-    <string id="ColorDarkGreen">Dark Green [006400]</string>
-    <string id="ColorBlue">Blue [0000FF]</string>
-    <string id="ColorYellow">Yellow [FFFF00]</string>
-    <string id="ColorOrange">Orange [FF8C00]</string>
-    <string id="ColorPurple">Purple [8B00FF]</string>
-    <string id="ColorPink">Pink [FF69B4]</string>
-    <string id="ColorCyan">Cyan [00FFFF]</string>
-    <string id="ColorTeal">Teal [20B2AA]</string>
-    <string id="ColorGold">Gold [FFD700]</string>
-    <string id="ColorSilver">Silver [C0C0C0]</string>
-    <string id="ColorLime">Lime [32CD32]</string>
-    <string id="ColorCoral">Coral [FF6B6B]</string>
-    <string id="ColorNavy">Navy [000080]</string>
-    <string id="ColorBeige">Beige [F5DEB3]</string>
-    <string id="ColorGray">Gray [808080]</string>
-    <string id="ColorCustom">Custom HEX...</string>
+    <!-- === BASICS (1-10) === -->
+    <string id="Color1">White [FFFFFF]</string>
+    <string id="Color2">Black [000000]</string>
+    <string id="Color3">Gray [808080]</string>
+    <string id="Color4">Dark Gray [A9A9A9]</string>
+    <string id="Color5">Light Gray [D3D3D3]</string>
+    <string id="Color6">Silver [C0C0C0]</string>
+    <string id="Color7">Charcoal [36454F]</string>
+    <string id="Color8">Dark Slate Gray [2F4F4F]</string>
+    <string id="Color9">Slate Gray [708090]</string>
+    <string id="Color10">Light Steel Blue [B0C4DE]</string>
+    
+    <!-- === REDS (11-20) === -->
+    <string id="Color11">Red [FF0000]</string>
+    <string id="Color12">Dark Red [380000]</string>
+    <string id="Color13">Crimson [DC143C]</string>
+    <string id="Color14">Firebrick [B22222]</string>
+    <string id="Color15">Indian Red [CD5C5C]</string>
+    <string id="Color16">Light Coral [F08080]</string>
+    <string id="Color17">Salmon [FA8072]</string>
+    <string id="Color18">Dark Salmon [E9967A]</string>
+    <string id="Color19">Light Salmon [FFA07A]</string>
+    <string id="Color20">Tomato [FF6347]</string>
+    
+    <!-- === ORANGES (21-28) === -->
+    <string id="Color21">Dark Orange [FF8C00]</string>
+    <string id="Color22">Coral [FF7F50]</string>
+    <string id="Color23">Light Coral Red [FF6B6B]</string>
+    <string id="Color24">Orange Red [FF4500]</string>
+    <string id="Color25">Orange [FFA500]</string>
+    <string id="Color26">Pastel Orange [FFB347]</string>
+    <string id="Color27">Burnt Orange [E65C00]</string>
+    <string id="Color28">Burnt Sienna [CC5500]</string>
+    
+    <!-- === YELLOWS (29-38) === -->
+    <string id="Color29">Yellow [FFFF00]</string>
+    <string id="Color30">Gold [FFD700]</string>
+    <string id="Color31">Goldenrod [FFC125]</string>
+    <string id="Color32">Dark Goldenrod [DAA520]</string>
+    <string id="Color33">Khaki [F0E68C]</string>
+    <string id="Color34">Dark Khaki [BDB76B]</string>
+    <string id="Color35">Banana Yellow [FFE135]</string>
+    <string id="Color36">Canary Yellow [FFEF00]</string>
+    <string id="Color37">Light Goldenrod [FAFAD2]</string>
+    <string id="Color38">Pale Goldenrod [EEE8AA]</string>
+    
+    <!-- === GREENS (39-55) === -->
+    <string id="Color39">Lime [00FF00]</string>
+    <string id="Color40">Green [008000]</string>
+    <string id="Color41">Dark Green [006400]</string>
+    <string id="Color42">Forest Green [228B22]</string>
+    <string id="Color43">Lime Green [32CD32]</string>
+    <string id="Color44">Light Green [90EE90]</string>
+    <string id="Color45">Pale Green [98FB98]</string>
+    <string id="Color46">Medium Spring Green [00FA9A]</string>
+    <string id="Color47">Spring Green [00FF7F]</string>
+    <string id="Color48">Lawn Green [7CFC00]</string>
+    <string id="Color49">Green Yellow [ADFF2F]</string>
+    <string id="Color50">Yellow Green [9ACD32]</string>
+    <string id="Color51">Olive Drab [6B8E23]</string>
+    <string id="Color52">Dark Olive Green [556B2F]</string>
+    <string id="Color53">Olive [808000]</string>
+    <string id="Color54">Sea Green [2E8B57]</string>
+    <string id="Color55">Medium Sea Green [3CB371]</string>
+    
+    <!-- === CYANS & TEALS (56-65) === -->
+    <string id="Color56">Cyan [00FFFF]</string>
+    <string id="Color57">Dark Turquoise [00CED1]</string>
+    <string id="Color58">Turquoise [40E0D0]</string>
+    <string id="Color59">Medium Turquoise [48D1CC]</string>
+    <string id="Color60">Light Sea Green [20B2AA]</string>
+    <string id="Color61">Dark Cyan [008B8B]</string>
+    <string id="Color62">Teal [008080]</string>
+    <string id="Color63">Cadet Blue [5F9EA0]</string>
+    <string id="Color64">Medium Aquamarine [66CDAA]</string>
+    <string id="Color65">Aquamarine [7FFFD4]</string>
+    
+    <!-- === BLUES (66-80) === -->
+    <string id="Color66">Blue [0000FF]</string>
+    <string id="Color67">Navy [000080]</string>
+    <string id="Color68">Dark Blue [00008B]</string>
+    <string id="Color69">Medium Blue [0000CD]</string>
+    <string id="Color70">Dodger Blue [1E90FF]</string>
+    <string id="Color71">Royal Blue [4169E1]</string>
+    <string id="Color72">Steel Blue [4682B4]</string>
+    <string id="Color73">Cornflower Blue [6495ED]</string>
+    <string id="Color74">Deep Sky Blue [00BFFF]</string>
+    <string id="Color75">Sky Blue [87CEEB]</string>
+    <string id="Color76">Light Sky Blue [87CEFA]</string>
+    <string id="Color77">Light Blue [ADD8E6]</string>
+    <string id="Color78">Powder Blue [B0E0E6]</string>
+    <string id="Color79">Midnight Blue [191970]</string>
+    <string id="Color80">Dark Slate Blue [483D8B]</string>
+    
+    <!-- === PURPLES & VIOLETS (81-92) === -->
+    <string id="Color81">Violet [8B00FF]</string>
+    <string id="Color82">Purple [800080]</string>
+    <string id="Color83">Dark Violet [9400D3]</string>
+    <string id="Color84">Dark Orchid [9932CC]</string>
+    <string id="Color85">Medium Orchid [BA55D3]</string>
+    <string id="Color86">Orchid [DA70D6]</string>
+    <string id="Color87">Light Violet [EE82EE]</string>
+    <string id="Color88">Plum [DDA0DD]</string>
+    <string id="Color89">Blue Violet [8A2BE2]</string>
+    <string id="Color90">Slate Blue [6A5ACD]</string>
+    <string id="Color91">Medium Slate Blue [7B68EE]</string>
+    <string id="Color92">Medium Purple [9370DB]</string>
+    
+    <!-- === PINKS & MAGENTAS (93-100) === -->
+    <string id="Color93">Magenta [FF00FF]</string>
+    <string id="Color94">Deep Pink [FF1493]</string>
+    <string id="Color95">Hot Pink [FF69B4]</string>
+    <string id="Color96">Light Pink [FFB6C1]</string>
+    <string id="Color97">Pink [FFC0CB]</string>
+    <string id="Color98">Pale Violet Red [DB7093]</string>
+    <string id="Color99">Medium Violet Red [C71585]</string>
+    <string id="Color100">Dark Magenta [8B008B]</string>
+    
+    <!-- === CUSTOM === -->
+    <string id="Color101">Custom HEX...</string>
 
     <string id="BatteryColorFullTitle">▶ Battery 100%</string>
     <string id="BatteryColorFullCustomTitle">↳ 100% Custom HEX</string>
