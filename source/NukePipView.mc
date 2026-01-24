@@ -19,7 +19,7 @@ class NukePipView extends WatchUi.WatchFace {
     private var currentBackground = 1;
     private var currentFont = 1;
 
-    // Typy danych (przenumerowane bez Distance)
+    // Typy danych
     enum {
         DATA_NONE = 0,
         DATA_TIME = 1,
@@ -35,11 +35,14 @@ class NukePipView extends WatchUi.WatchFace {
         DATA_SECONDS = 11
     }
 
-    // Ustawienia wskaźnika baterii
-    private const BATTERY_TICK_LENGTH = 12;
-    private const BATTERY_TICK_WIDTH = 4;
-    private const BATTERY_TICK_OVERFLOW = 10;
-    private const BATTERY_MAX_TICKS = 60;
+    // Ustawienia wskaźnika sekund (kreski)
+    private const SECONDS_TICK_LENGTH = 12;
+    private const SECONDS_TICK_WIDTH = 4;
+    private const SECONDS_TICK_OVERFLOW = 10;
+    private const SECONDS_MAX_TICKS = 60;
+    
+    // Ustawienia obwódki baterii
+    private const BATTERY_ARC_OVERFLOW = 8; // Wystaje poza ekran
     
     private const BATTERY_COLOR_FULL_DEFAULT = 0x008000;
     private const BATTERY_COLOR_MID_DEFAULT = 0xFFFF12;
@@ -119,35 +122,17 @@ class NukePipView extends WatchUi.WatchFace {
         return defaultVal;
     }
 
-    // Tablica predefiniowanych kolorów (indeksy 1-20, 21 = custom)
     private var PRESET_COLORS = [
-        0xFFFFFF,  // 1 - White
-        0x000000,  // 2 - Black
-        0xFF0000,  // 3 - Red
-        0x8B0000,  // 4 - Dark Red
-        0x00FF00,  // 5 - Green
-        0x006400,  // 6 - Dark Green
-        0x0000FF,  // 7 - Blue
-        0xFFFF00,  // 8 - Yellow
-        0xFF8C00,  // 9 - Orange
-        0x8B00FF,  // 10 - Purple
-        0xFF69B4,  // 11 - Pink
-        0x00FFFF,  // 12 - Cyan
-        0x20B2AA,  // 13 - Teal
-        0xFFD700,  // 14 - Gold
-        0xC0C0C0,  // 15 - Silver
-        0x32CD32,  // 16 - Lime
-        0xFF6B6B,  // 17 - Coral
-        0x000080,  // 18 - Navy
-        0xF5DEB3,  // 19 - Beige
-        0x808080   // 20 - Gray
+        0xFFFFFF, 0x000000, 0xFF0000, 0x8B0000, 0x00FF00,
+        0x006400, 0x0000FF, 0xFFFF00, 0xFF8C00, 0x8B00FF,
+        0xFF69B4, 0x00FFFF, 0x20B2AA, 0xFFD700, 0xC0C0C0,
+        0x32CD32, 0xFF6B6B, 0x000080, 0xF5DEB3, 0x808080
     ];
 
     function getColorFromProperty(propertyId as String, customPropertyId as String, defaultColor as Number) as Number {
         var colorChoice = getNumberProperty(propertyId, 1);
         
         if (colorChoice == 21) {
-            // Custom HEX
             try {
                 var hexVal = Application.Properties.getValue(customPropertyId);
                 if (hexVal != null && hexVal instanceof String) {
@@ -158,16 +143,6 @@ class NukePipView extends WatchUi.WatchFace {
         } else if (colorChoice >= 1 && colorChoice <= 20) {
             return PRESET_COLORS[colorChoice - 1];
         }
-        return defaultColor;
-    }
-    
-    function getColor(propertyId as String, defaultColor as Number) as Number {
-        try {
-            var hexVal = Application.Properties.getValue(propertyId);
-            if (hexVal != null && hexVal instanceof String) {
-                return parseHexColor(hexVal as String, defaultColor);
-            }
-        } catch (e) {}
         return defaultColor;
     }
 
@@ -234,22 +209,26 @@ class NukePipView extends WatchUi.WatchFace {
         }
     }
 
-    function drawBatteryIndicator(dc as Dc) as Void {
+    // Rysuje kreski sekund (0-59), kolor zależy od baterii
+    function drawSecondsIndicator(dc as Dc) as Void {
+        var clockTime = System.getClockTime();
+        var currentSecond = clockTime.sec;
+        var tickCount = currentSecond + 1;
+        
         var stats = System.getSystemStats();
         var batteryPercent = stats.battery.toNumber();
-        var tickCount = ((batteryPercent * BATTERY_MAX_TICKS) / 100.0).toNumber();
-        if (tickCount < 1 && batteryPercent > 0) { tickCount = 1; }
+        var tickColor = getBatteryColor(batteryPercent);
         
         var centerX = dc.getWidth() / 2;
         var centerY = dc.getHeight() / 2;
-        var outerRadius = dc.getWidth() / 2 + BATTERY_TICK_OVERFLOW;
-        var innerRadius = outerRadius - BATTERY_TICK_LENGTH - BATTERY_TICK_OVERFLOW;
+        var outerRadius = dc.getWidth() / 2 + SECONDS_TICK_OVERFLOW;
+        var innerRadius = outerRadius - SECONDS_TICK_LENGTH - SECONDS_TICK_OVERFLOW;
         
-        dc.setColor(getBatteryColor(batteryPercent), Graphics.COLOR_TRANSPARENT);
+        dc.setColor(tickColor, Graphics.COLOR_TRANSPARENT);
         if (dc has :setAntiAlias) { dc.setAntiAlias(true); }
         
         for (var i = 0; i < tickCount; i++) {
-            var angle = -90 + (i * 360.0 / BATTERY_MAX_TICKS);
+            var angle = -90 + (i * 360.0 / SECONDS_MAX_TICKS);
             var angleRad = Math.toRadians(angle);
             var cosA = Math.cos(angleRad);
             var sinA = Math.sin(angleRad);
@@ -259,8 +238,8 @@ class NukePipView extends WatchUi.WatchFace {
             var innerX = centerX + (innerRadius * cosA);
             var innerY = centerY + (innerRadius * sinA);
             
-            var perpX = sinA * BATTERY_TICK_WIDTH / 2;
-            var perpY = -cosA * BATTERY_TICK_WIDTH / 2;
+            var perpX = sinA * SECONDS_TICK_WIDTH / 2;
+            var perpY = -cosA * SECONDS_TICK_WIDTH / 2;
             
             dc.fillPolygon([
                 [outerX - perpX, outerY - perpY], [outerX + perpX, outerY + perpY],
@@ -285,19 +264,16 @@ class NukePipView extends WatchUi.WatchFace {
             var y = (dc.getHeight() - backgroundBitmap.getHeight()) / 2;
             dc.drawBitmap(x, y, backgroundBitmap);
         }
-
-        drawBatteryIndicator(dc);
+        
+        // Potem kreski sekund (na wierzchu)
+        drawSecondsIndicator(dc);
         
         var centerX = dc.getWidth() / 2;
-        var margin = 35; // Margines od krawędzi dla długich tekstów
         
-        // Rysuj wszystkie pola
-        // Górne, środkowe i dolne - wycentrowane
         drawField(dc, "Upper", centerX, dc.getHeight() / 7, font40, Graphics.TEXT_JUSTIFY_CENTER);
         drawField(dc, "Middle", centerX, dc.getHeight() * 4 / 10, fontRegular, Graphics.TEXT_JUSTIFY_CENTER);
         drawField(dc, "Lower", centerX, dc.getHeight() * 13 / 16, fontSmall, Graphics.TEXT_JUSTIFY_CENTER);
         
-        // Lewe i prawe - pozycja zależy od długości tekstu
         drawSideField(dc, "Left", dc.getHeight() * 6 / 10, true);
         drawSideField(dc, "Right", dc.getHeight() * 6 / 10, false);
     }
@@ -314,23 +290,13 @@ class NukePipView extends WatchUi.WatchFace {
         var justification;
         
         if (textLen <= 3) {
-            // Krótki tekst - pozycja jak oryginalne HR/Temperature (bliżej krawędzi)
-            if (isLeft) {
-                x = dc.getWidth() / 5;
-            } else {
-                x = dc.getWidth() * 4 / 5;
-            }
+            if (isLeft) { x = dc.getWidth() / 5; }
+            else { x = dc.getWidth() * 4 / 5; }
             justification = Graphics.TEXT_JUSTIFY_CENTER;
         } else {
-            // Długi tekst - przy krawędzi z marginesem
             var margin = 25;
-            if (isLeft) {
-                x = margin;
-                justification = Graphics.TEXT_JUSTIFY_LEFT;
-            } else {
-                x = dc.getWidth() - margin;
-                justification = Graphics.TEXT_JUSTIFY_RIGHT;
-            }
+            if (isLeft) { x = margin; justification = Graphics.TEXT_JUSTIFY_LEFT; }
+            else { x = dc.getWidth() - margin; justification = Graphics.TEXT_JUSTIFY_RIGHT; }
         }
         
         dc.setColor(color, Graphics.COLOR_TRANSPARENT);
@@ -472,9 +438,7 @@ class NukePipView extends WatchUi.WatchFace {
         if (actInfo != null && actInfo.altitude != null) {
             var alt = actInfo.altitude;
             var unit = getNumberProperty("AltitudeUnit", 1);
-            if (unit == 2) {
-                alt = alt * 3.28084;
-            }
+            if (unit == 2) { alt = alt * 3.28084; }
             return alt.toNumber().toString();
         }
         if (Toybox has :SensorHistory && SensorHistory has :getElevationHistory) {
@@ -484,9 +448,7 @@ class NukePipView extends WatchUi.WatchFace {
                 if (sample != null && sample.data != null) {
                     var alt = sample.data;
                     var unit = getNumberProperty("AltitudeUnit", 1);
-                    if (unit == 2) {
-                        alt = alt * 3.28084;
-                    }
+                    if (unit == 2) { alt = alt * 3.28084; }
                     return alt.toNumber().toString();
                 }
             }
