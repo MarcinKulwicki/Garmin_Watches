@@ -2,7 +2,7 @@
 
     <string id="AppName">Nuke Pip</string>
 
-    <string id="BackgroundTypeTitle">Background Type</string>
+    <string id="BackgroundTypeTitle">▶ Background Type</string>
     <string id="BackgroundImage1">Image 1</string>
     <string id="BackgroundImage2">Image 2</string>
     <string id="BackgroundImage3">Image 3</string>
@@ -18,10 +18,9 @@
     <string id="BackgroundImage13">Image 13</string>
     <string id="BackgroundSolid">Solid Color</string>
 
-    <string id="BackgroundSolidColorTitle">▶ Solid Background Color</string>
-    <string id="BackgroundSolidColorCustomTitle">↳ Solid Custom HEX</string>
+    <string id="BackgroundSolidColorTitle">● Solid Background Color</string>
 
-    <string id="FontChoiceTitle">Font</string>
+    <string id="FontChoiceTitle">▶ Font</string>
     <string id="MilitaryFormatTitle">24 Hour Format</string>
 
     <string id="DataNone">None</string>
@@ -37,25 +36,20 @@
     <string id="DataNotifications">Notifications</string>
     <string id="DataSeconds">Seconds</string>
 
-    <string id="UpperFieldDataTitle">▶ Upper Field Data</string>
-    <string id="UpperFieldColorTitle">↳ Upper Color</string>
-    <string id="UpperFieldColorCustomTitle">↳ Upper Custom HEX</string>
+    <string id="UpperFieldDataTitle">● Upper Field Data</string>
+    <string id="UpperFieldColorTitle"> ↳ Upper Color</string>
     
-    <string id="MiddleFieldDataTitle">▶ Middle Field Data</string>
-    <string id="MiddleFieldColorTitle">↳ Middle Color</string>
-    <string id="MiddleFieldColorCustomTitle">↳ Middle Custom HEX</string>
+    <string id="MiddleFieldDataTitle">● Middle Field Data</string>
+    <string id="MiddleFieldColorTitle"> ↳ Middle Color</string>
     
-    <string id="LowerFieldDataTitle">▶ Lower Field Data</string>
-    <string id="LowerFieldColorTitle">↳ Lower Color</string>
-    <string id="LowerFieldColorCustomTitle">↳ Lower Custom HEX</string>
+    <string id="LowerFieldDataTitle">● Lower Field Data</string>
+    <string id="LowerFieldColorTitle"> ↳ Lower Color</string>
     
-    <string id="LeftFieldDataTitle">▶ Left Field Data</string>
-    <string id="LeftFieldColorTitle">↳ Left Color</string>
-    <string id="LeftFieldColorCustomTitle">↳ Left Custom HEX</string>
+    <string id="LeftFieldDataTitle">● Left Field Data</string>
+    <string id="LeftFieldColorTitle"> ↳ Left Color</string>
     
-    <string id="RightFieldDataTitle">▶ Right Field Data</string>
-    <string id="RightFieldColorTitle">↳ Right Color</string>
-    <string id="RightFieldColorCustomTitle">↳ Right Custom HEX</string>
+    <string id="RightFieldDataTitle">● Right Field Data</string>
+    <string id="RightFieldColorTitle"> ↳ Right Color</string>
 
     <!-- === BASICS (1-10) === -->
     <string id="Color1">White [FFFFFF]</string>
@@ -174,16 +168,10 @@
     <string id="Color98">Pale Violet Red [DB7093]</string>
     <string id="Color99">Medium Violet Red [C71585]</string>
     <string id="Color100">Dark Magenta [8B008B]</string>
-    
-    <!-- === CUSTOM === -->
-    <string id="Color101">Custom HEX...</string>
 
-    <string id="BatteryColorFullTitle">▶ Battery 100%</string>
-    <string id="BatteryColorFullCustomTitle">↳ 100% Custom HEX</string>
-    <string id="BatteryColorMidTitle">▶ Battery 30%</string>
-    <string id="BatteryColorMidCustomTitle">↳ 30% Custom HEX</string>
-    <string id="BatteryColorLowTitle">▶ Battery 0%</string>
-    <string id="BatteryColorLowCustomTitle">↳ 0% Custom HEX</string>
+    <string id="BatteryColorFullTitle">● Battery 100%</string>
+    <string id="BatteryColorMidTitle">● Battery 30%</string>
+    <string id="BatteryColorLowTitle">● Battery 0%</string>
 
     <string id="FontH">Font H</string>
     <string id="FontG">Font G</string>
@@ -191,15 +179,15 @@
     <string id="FontT">Font T</string>
     <string id="FontO">Font O</string>
 
-    <string id="TemperatureUnitTitle">Temperature Unit</string>
+    <string id="TemperatureUnitTitle">▶ Temperature Unit</string>
     <string id="Celsius">Celsius (°C)</string>
     <string id="Fahrenheit">Fahrenheit (°F)</string>
 
-    <string id="TemperatureSourceTitle">Temperature Source</string>
+    <string id="TemperatureSourceTitle">▶ Temperature Source</string>
     <string id="TempWeather">Weather</string>
     <string id="TempSensor">Sensor</string>
     
-    <string id="AltitudeUnitTitle">Altitude Unit</string>
+    <string id="AltitudeUnitTitle">▶ Altitude Unit</string>
     <string id="AltitudeMeters">Meters (m)</string>
     <string id="AltitudeFeet">Feet (ft)</string>
 

@@ -131,10 +131,7 @@ module ColorHelper {
     function getColorFromProperty(propertyId as String, customPropertyId as String, defaultColor as Number) as Number {
         var colorChoice = SettingsHelper.getNumberProperty(propertyId, 1);
         
-        if (colorChoice == 101) {
-            var hexVal = SettingsHelper.getStringProperty(customPropertyId, "");
-            return parseHexColor(hexVal, defaultColor);
-        } else if (colorChoice >= 1 && colorChoice <= 100) {
+        if (colorChoice >= 1 && colorChoice <= 100) {
             return PRESET_COLORS[colorChoice - 1];
         }
         return defaultColor;

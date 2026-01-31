@@ -128,12 +128,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-
-    <setting propertyKey="@Properties.BackgroundSolidColorCustom" title="@Strings.BackgroundSolidColorCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.FontChoice" title="@Strings.FontChoiceTitle">
@@ -272,12 +267,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.UpperFieldColorCustom" title="@Strings.UpperFieldColorCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.MiddleFieldData" title="@Strings.MiddleFieldDataTitle">
@@ -406,12 +396,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.MiddleFieldColorCustom" title="@Strings.MiddleFieldColorCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.LowerFieldData" title="@Strings.LowerFieldDataTitle">
@@ -540,12 +525,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.LowerFieldColorCustom" title="@Strings.LowerFieldColorCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.LeftFieldData" title="@Strings.LeftFieldDataTitle">
@@ -674,12 +654,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.LeftFieldColorCustom" title="@Strings.LeftFieldColorCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.RightFieldData" title="@Strings.RightFieldDataTitle">
@@ -808,12 +783,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.RightFieldColorCustom" title="@Strings.RightFieldColorCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.BatteryColorFull" title="@Strings.BatteryColorFullTitle">
@@ -925,12 +895,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.BatteryColorFullCustom" title="@Strings.BatteryColorFullCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.BatteryColorMid" title="@Strings.BatteryColorMidTitle">
@@ -1042,12 +1007,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.BatteryColorMidCustom" title="@Strings.BatteryColorMidCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.BatteryColorLow" title="@Strings.BatteryColorLowTitle">
@@ -1159,12 +1119,7 @@
             <listEntry value="98">@Strings.Color98</listEntry>
             <listEntry value="99">@Strings.Color99</listEntry>
             <listEntry value="100">@Strings.Color100</listEntry>
-            <listEntry value="101">@Strings.Color101</listEntry>
         </settingConfig>
-    </setting>
-    
-    <setting propertyKey="@Properties.BatteryColorLowCustom" title="@Strings.BatteryColorLowCustomTitle">
-        <settingConfig type="alphaNumeric" maxLength="6" />
     </setting>
 
     <setting propertyKey="@Properties.TemperatureUnit" title="@Strings.TemperatureUnitTitle">
