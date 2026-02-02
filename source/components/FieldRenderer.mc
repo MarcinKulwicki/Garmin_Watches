@@ -14,6 +14,14 @@ module FieldRenderer {
         );
         var text = DataHelper.getDataString(dataType);
         
+        if (fieldName.equals("Middle")) {
+            var leftData = SettingsHelper.getNumberProperty("LeftFieldData", DataHelper.DATA_NONE);
+            var rightData = SettingsHelper.getNumberProperty("RightFieldData", DataHelper.DATA_NONE);
+            if (leftData == DataHelper.DATA_NONE && rightData == DataHelper.DATA_NONE) {
+                y = dc.getHeight() / 2;
+            }
+        }
+        
         dc.setColor(color, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, font, text, justification | Graphics.TEXT_JUSTIFY_VCENTER);
     }
