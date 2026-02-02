@@ -169,6 +169,19 @@
     <string id="Color99">Medium Violet Red [C71585]</string>
     <string id="Color100">Dark Magenta [8B008B]</string>
 
+    <string id="Color101">Brown [8B4513]</string>
+    <string id="Color102">Saddle Brown [8B4513]</string>
+    <string id="Color103">Sienna [A0522D]</string>
+    <string id="Color104">Chocolate [D2691E]</string>
+    <string id="Color105">Peru [CD853F]</string>
+    <string id="Color106">Sandy Brown [F4A460]</string>
+    <string id="Color107">Rosy Brown [BC8F8F]</string>
+    <string id="Color108">Tan [D2B48C]</string>
+    <string id="Color109">Burlywood [DEB887]</string>
+    <string id="Color110">Wheat [F5DEB3]</string>
+    <string id="Color111">Beige [F5F5DC]</string>
+    <string id="Color112">Antique White [FAEBD7]</string>
+
     <string id="BatteryColorFullTitle">● Battery 100%</string>
     <string id="BatteryColorMidTitle">● Battery 30%</string>
     <string id="BatteryColorLowTitle">● Battery 0%</string>

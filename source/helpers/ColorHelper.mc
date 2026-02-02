@@ -94,7 +94,7 @@ module ColorHelper {
         0x1E90FF,  // 70. Dodger Blue
         0x4169E1,  // 71. Royal Blue
         0x4682B4,  // 72. Steel Blue
-        0x6495ED,  // 73. Cornflower Blue
+        0x00A0E3,  // 73. Cornflower Blue
         0x00BFFF,  // 74. Deep Sky Blue
         0x87CEEB,  // 75. Sky Blue
         0x87CEFA,  // 76. Light Sky Blue
@@ -125,13 +125,27 @@ module ColorHelper {
         0xFFC0CB,  // 97. Pink
         0xDB7093,  // 98. Pale Violet Red
         0xC71585,  // 99. Medium Violet Red
-        0x8B008B   // 100. Dark Magenta
+        0x8B008B,   // 100. Dark Magenta
+
+        // === BROWNS & BEIGES (101-112) ===
+        0x8B4513,  // 101. Brown
+        0x8B4513,  // 102. Saddle Brown
+        0xA0522D,  // 103. Sienna
+        0xD2691E,  // 104. Chocolate
+        0xCD853F,  // 105. Peru
+        0xF4A460,  // 106. Sandy Brown
+        0xBC8F8F,  // 107. Rosy Brown
+        0xD2B48C,  // 108. Tan
+        0xDEB887,  // 109. Burlywood
+        0xF5DEB3,  // 110. Wheat
+        0xF5F5DC,  // 111. Beige
+        0xFAEBD7   // 112. Antique White
     ];
 
     function getColorFromProperty(propertyId as String, customPropertyId as String, defaultColor as Number) as Number {
         var colorChoice = SettingsHelper.getNumberProperty(propertyId, 1);
         
-        if (colorChoice >= 1 && colorChoice <= 100) {
+        if (colorChoice >= 1 && colorChoice <= 112) {
             return PRESET_COLORS[colorChoice - 1];
         }
         return defaultColor;
